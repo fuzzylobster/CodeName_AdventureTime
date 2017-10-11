@@ -2,43 +2,91 @@ import React, { Component } from 'react';
 import {
   Platform,
   Text,
-  View
+  View,
+  Dimensions,
 } from 'react-native';
 
 import styles from './Styles/MapViewStyle'
 import MapView from 'react-native-maps'
 
-const marker = {
-  latlng: {
-    latitude: 29.94594699999999,
-    longitude:-90.07002319999998
-  },
-  title: "Operation Spark",
-  description: "Code Central"
-}
+const{width, height} = Dimensions.get('window')
+const SCREEN_HEIGHT = height
+const SCREEN_WIDTH = width
+const ASPECT_RATIO = width / height
+const LATITUDE_DELTA = 0.003
+const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO
+
 
 
 export default class MapViewer extends Component{
+  constructor(props){
+    super(props)
+
+  
+
+    this.state = {
+      initialPosition:{
+        latitude: 0,
+        longitude: 0,
+        latitudeDelta: 0,
+        longitudeDelta: 0
+      }, 
+      markerPosition: {
+        latitude: 0,
+        longitude: 0
+      }
+
+    }
+  }
+     watchID =  null
+    componentWillMount(){
+      navigator.geolocation.getCurrentPosition((position) => {
+        var lat = parseFloat(position.coords.latitude)
+        var long = parseFloat(position.coords.longitude)
+
+        var initialRegion = {
+          latitude: lat,
+          longitude: long,
+          latitudeDelta: LATITUDE_DELTA,
+          longitudeDelta: LONGITUDE_DELTA
+        }
+        this.setState({initialPosition: initialRegion})
+        this.setState({markerPosition: initialRegion})
+      },
+      (error) => alert(JSON.stringify(error)),
+      {enableHighAccuracy: true, timeout: 2000, maximumAge: 1000})
+
+      this.watchID = navigator.geolocation.watchPosition((position) => {
+        var lat = parseFloat(position.coords.latitude)
+        var long = parseFloat(position.coords.longitude)
+
+        var lastRegion = {
+          latitude: lat,
+          longitude: long,
+          latitudeDelta: LATITUDE_DELTA,
+          longitudeDelta: LONGITUDE_DELTA
+        }
+        this.setState({initialPosition: lastRegion})
+        this.setState({markerPosition: lastRegion})
+
+      })
+    }
+    componentWillUnmount(){
+      navigator.geolocation.clearWatch(this.watchID)
+    }
     render() {
-        const { region } = this.props;
-        console.log(region);
-    
         return (
           <View style ={styles.container}>
             <MapView
               style={styles.map}
-              region={{
-                latitude: 29.9459469,
-                longitude: -90.070023,
-                latitudeDelta: 0.015,
-                longitudeDelta: 0.0121,
-              }}
-            >
+              region={this.state.initialPosition}>
             <MapView.Marker
-      coordinate={marker.latlng}
-      title={marker.title}
-      description={marker.description}
-    />
+      coordinate={this.state.markerPosition}>
+      <View style={styles.radius}>
+        <View style={styles.marker}>
+        </View>
+        </View>
+       </MapView.Marker>
             </MapView>
           </View>
         );

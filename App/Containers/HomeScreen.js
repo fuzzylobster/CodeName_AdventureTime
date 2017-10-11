@@ -26,6 +26,12 @@ export default class HomeScreen extends Component{
       
       <View style={styles.container}>
       <MapViewer/>
+      {/* <Button
+        title="Go to Aarons's profile"
+        onPress={() =>
+          navigate('Profile')
+        }
+      /> */}
   
  
 
