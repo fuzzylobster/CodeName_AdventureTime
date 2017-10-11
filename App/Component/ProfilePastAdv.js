@@ -14,7 +14,7 @@ export default class ProfilePastAdv extends Component {
   render() {
     return (
      
-      <Swiper style={styles.wrapper} showsButtons={true}>
+      <Swiper style={styles.wrapper} >
         <View style={styles.slide}>
           <CardImage />
         </View>
