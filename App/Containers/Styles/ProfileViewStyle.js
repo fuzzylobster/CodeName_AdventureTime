@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
 //import { Metrics, ApplicationStyles } from '../../Themes/'
 
 export default StyleSheet.create({
@@ -7,15 +7,17 @@ export default StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#F5FCFF',
+      }, 
+      modal: {
+        flex: 1,
+        padding: 40,
+        backgroundColor: '#000000'
       },
-      welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
+      image: {
+          flex: 1,
+          alignSelf: 'stretch',
       },
-      instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
-      },
+      text: {
+          color: '#ffffff'
+      }
 })

@@ -10,7 +10,7 @@ import {
   StyleSheet,
   Text,
   View, 
-  Button
+  Button,
 } from 'react-native';
 
 import ProfileHeader from '../Component/ProfileHeader'
@@ -25,13 +25,18 @@ export default class HomeScreen extends Component{
     return (
       
       <View style={styles.container}>
-      <MapViewer/>
-      {/* <Button
+      <Button
         title="Go to Aarons's profile"
         onPress={() =>
           navigate('Profile')
         }
-      /> */}
+      />
+      <Button
+        title="Go to MapView"
+        onPress={() =>
+          navigate('RouteViewer')
+        }
+      />
   
  
 

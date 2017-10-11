@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 import ProfileHeader from '../Component/ProfileHeader'
-import MapView from '../Component/MapViewer'
+import MapViewer from '../Component/MapViewer'
 import styles from './Styles/HomeScreenStyle'
 
 
