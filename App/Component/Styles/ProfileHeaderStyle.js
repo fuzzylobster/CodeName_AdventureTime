@@ -2,11 +2,11 @@ import { StyleSheet } from 'react-native'
 //import { Metrics, ApplicationStyles } from '../../Themes/'
 
 export default StyleSheet.create({
-    container: {
+   headerBackground: {
         flex: 1,
         width: null,
         alignSelf: 'stretch',
-        backgroundColor: '#F5FCFF',
+        backgroundColor: '#000000'
       },
       header: {
         flex: 1,
@@ -28,7 +28,7 @@ export default StyleSheet.create({
           alignSelf: 'stretch',
           borderRadius: 100,
           borderColor: '#fff',
-          borderWidth: 4
+          borderWidth: 4,
       },
       name: {
           marginTop: 20,

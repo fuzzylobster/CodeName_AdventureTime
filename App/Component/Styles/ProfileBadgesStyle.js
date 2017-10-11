@@ -2,20 +2,30 @@ import { StyleSheet } from 'react-native'
 //import { Metrics, ApplicationStyles } from '../../Themes/'
 
 export default StyleSheet.create({
-    container: {
+    bar: {
+        borderTopColor: '#fff',
+        borderTopWidth: 1,
+        borderBottomWidth: 1,
+        backgroundColor: '#ec2e4a',
+        flexDirection: 'row'
+        
+    },
+    barSeparator: {
+        borderRightWidth: 4,
+    },
+    barItem:{
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-      },
-      welcome: {
+        padding: 18,
+        alignItems: 'center'
+    },
+    barTop: {
+        color: '#fff',
         fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-      },
-      instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
-      },
+        fontWeight: 'bold',
+    },
+    barBottom: {
+        color: '#fff',
+        fontSize: 11,
+        fontWeight: 'bold',
+    }
 })
