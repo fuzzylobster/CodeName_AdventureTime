@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 
 import ProfileHeader from '../Component/ProfileHeader'
+import FooterMenu from '../Component/Footer'
 import MapViewer from '../Component/MapViewer'
 import styles from './Styles/HomeScreenStyle'
 
@@ -23,7 +24,9 @@ export default class HomeScreen extends Component{
   render() {
     const { navigate } = this.props.navigation;
     return (
-      
+     
+
+     
       <View style={styles.container}>
       <Button
         title="Go to Aarons's profile"
@@ -41,6 +44,7 @@ export default class HomeScreen extends Component{
  
 
 
+      
       </View>
     );
   }
