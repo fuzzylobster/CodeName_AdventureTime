@@ -6,7 +6,6 @@ import {
   Image,
   Modal
 } from 'react-native';
-
 import { Container, Header, Content } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import Orientation from 'react-native-orientation';
@@ -93,7 +92,7 @@ export default class ProfileView extends Component {
         </Modal>
         <Row size={43}>
           <View style={styles.container}>
-            <ProfileHeader />
+            <ProfileHeader user={this.props.user}/>
             <ProfileBadges />
           </View>
         </Row>
