@@ -7,5 +7,6 @@ export default StyleSheet.create({
         width: null,
         alignSelf: 'stretch',
       }, 
+
       
 })

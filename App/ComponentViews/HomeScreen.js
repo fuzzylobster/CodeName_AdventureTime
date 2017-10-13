@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   Platform,
@@ -12,10 +6,7 @@ import {
   View, 
   Button,
 } from 'react-native';
-
-import ProfileHeader from '../Component/ProfileHeader'
 import FooterMenu from '../Component/Footer'
-import MapViewer from '../Component/MapViewer'
 import styles from './Styles/HomeScreenStyle'
 
 
@@ -28,12 +19,15 @@ export default class HomeScreen extends Component{
 
      
       <View style={styles.container}>
-      <Button
-        title="Go to Aarons's profile"
-        onPress={() =>
+     
+
+    <Button onPress={() =>
           navigate('Profile')
-        }
-      />
+         
+        }  title={this.props.user.name}>
+       
+        </Button>
+
       <Button
         title="Go to MapView"
         onPress={() =>
