@@ -5,6 +5,7 @@ import {
   Text,
   View, 
   Button,
+  Image
 } from 'react-native';
 import FooterMenu from '../Component/Footer'
 import styles from './Styles/HomeScreenStyle'
@@ -12,26 +13,38 @@ import styles from './Styles/HomeScreenStyle'
 
 
 export default class HomeScreen extends Component{
+  constructor(props) {
+    super(props)
+
+
+  }
   render() {
-    const { navigate } = this.props.navigation;
     return (
+      <View >
+     <View style={styles.profilePicWrap}>
+      <Image style={styles.profilePic} source={{ uri: this.props.user.picture.data.url }}></Image>
+  </View>
      
 
      
-      <View style={styles.container}>
+      
      
 
     <Button onPress={() =>
-          navigate('Profile')
+          this.props.navigation.navigate('Profile')
          
         }  title={this.props.user.name}>
        
         </Button>
+        <Text>
+        {Object.keys(this.props.user)}
+
+        </Text>
 
       <Button
         title="Go to MapView"
         onPress={() =>
-          navigate('RouteViewer')
+          this.props.navigation.navigate('RouteViewer')
         }
       />
   
