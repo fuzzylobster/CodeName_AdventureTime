@@ -15,6 +15,7 @@ import ProfileBadges from '../Component/ProfileBadges'
 import ProfilePastAdv from '../Component/ProfilePastAdv'
 import ProfilePhotos from '../Component/ProfilePhotos'
 import ProfileUserPhoto from '../Component/ProfileUserPhoto'
+
 import styles from './Styles/ProfileViewStyle'
 
 
