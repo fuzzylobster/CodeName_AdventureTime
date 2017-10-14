@@ -40,7 +40,8 @@ export default class LoginScreen extends Component {
       appId: '959826721453-9ee4bq4h7uvantvbeoj6da3lr91do8oa.apps.googleusercontent.com',
       callback: 'com.googleusercontent.apps.959826721453-9ee4bq4h7uvantvbeoj6da3lr91do8oa:/oauth2redirect',
     }).then((info) => {
-      this.props.onLogin(info.user)
+      let obj = {id: info.user.id, name: info.user.name, First_name: info.user.given_name, Last_name: info.user.family_name, verified: info.user.verified_email, email: info.user.email, link: info.user.link, picture: {data:{url: info.user.picture} }}
+      this.props.onLogin(obj)
       const api = Api.create()
       api.postUserData({ token: info.credentials.id_token, authType: 'google' })
       if(this.props.user.name){
