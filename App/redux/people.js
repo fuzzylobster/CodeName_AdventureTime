@@ -11,6 +11,17 @@ const initialState = {
     latitudeDelta: 0,
     longitudeDelta: 0
   },
+  photos:[
+    {
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJmiK3Y8sYebZUTq5dfCwrv_pzXQIoGxZMqxZ5mb1dFuZ8CEhr'
+     }, {
+       image: 'http://90sbarcrawl.com/wp-content/uploads/2016/04/pub-crawl-4-16-BWP-93.jpg'
+     }, {
+       image: 'http://d1bhvwz6nty0cr.cloudfront.net/wp-content/uploads/20170117100837/DallasArtsDistrict_EventHero_52.jpg'
+     }, {
+       image: 'https://media.timeout.com/images/100729813/image.jpg'
+     },
+  ],
   adventure: {
     markerLocations: [
       {
@@ -22,41 +33,31 @@ const initialState = {
 
   },
   pastAdventures: [
-    { cover: 'https://www.orlandoinformer.com/wp-content/uploads/2011/08/port-of-entry-islands-of-adventure-725-oi.jpg', city: 'New Orleans, LA', likes: 35, comments: 100 },
-    { cover: 'http://cdn1.theodysseyonline.com/files/2015/11/21/635837430566856627-1324495185_tndkklvnxeoprzcusexl.jpg', city: 'New Orleans, LA', likes: 35, comments: 100 }
+    { cover: 'https://www.orlandoinformer.com/wp-content/uploads/2011/08/port-of-entry-islands-of-adventure-725-oi.jpg', city: 'New Orleans, LA', likes: 12, comments: 10, distance: 3, badge: ['Trail Maker'] },
+    { cover: 'http://cdn1.theodysseyonline.com/files/2015/11/21/635837430566856627-1324495185_tndkklvnxeoprzcusexl.jpg', city: 'New Orleans, LA', likes: 35, comments: 3, distance: 4, badge: [] }
   ],
   CurrentStop: {},
   stockPhotos: [
     {
-      key: 1, name: 'Aaron', image: 'https://scontent-dft4-2.xx.fbcdn.net/v/t1.0-9/10447708_10105496802291065_3147331436798292945_n.jpg?oh=ff797fce9d955f7447e90ee529022d1c&oe=5A420D4C'
+     image: 'https://az616578.vo.msecnd.net/files/2016/09/11/6360922286821585541523176234_party%20school.jpg'
     }, {
-      key: 2,
-      name: 'Aaron',
-      image: 'https://scontent-dft4-2.xx.fbcdn.net/v/t1.0-9/14045538_10107972595032565_3593452153664586935_n.jpg?oh=26a4a7c5994a20fd4925ca44e652e600&oe=5A3CDA8F'
+      image: 'http://lukacsbaths.com/wp-content/uploads/2013/10/Szechenyi-Bath-Party-September-7-Sparty-Girl-Wow-Lights.jpg'
     }, {
-      key: 3,
-      name: 'Aaron',
-      image: 'https://scontent-dft4-2.xx.fbcdn.net/v/t1.0-9/484184_10101925915846125_2117390075_n.jpg?oh=1ac9e874e9aff45162e1bd57260a87cf&oe=5A45C8EC'
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXV6QAWuF9h_D0jHLsDPibomXqvUT_FSVJiJPrfj7tkjlmR4MfUg'
     }, {
-      key: 4,
-      name: 'Aaron',
-      image: 'https://scontent-dft4-2.xx.fbcdn.net/v/t1.0-9/296567_10100920967635395_1566287574_n.jpg?oh=3e4662df3e0e036d7e1ebdcc9db45261&oe=5A3BB0FA'
+      image: 'http://media.istockphoto.com/photos/young-sisters-watching-fireworks-on-new-years-day-picture-id637668670?k=6&m=637668670&s=612x612&w=0&h=Ad6Hpcz0ktPMZW9cx2WC286HymnhSZen8tmmJs2ehJQ='
     }, {
-      key: 5,
-      name: 'Aaron',
-      image: 'https://scontent-dft4-2.xx.fbcdn.net/v/t1.0-9/14731191_10108307608712465_7841494444542832586_n.jpg?oh=77c6f8ef56268c76513122da90a08dea&oe=5A3D0BD0'
+      image: 'http://www.myneworleans.com/images/cache/cache_f/cache_0/cache_4/McNulty.03.21.02-8285540f.jpeg?ver=1468732218&aspectratio=1.5156794425087'
     }, {
-      key: 6,
-      name: 'Aaron',
-      image: 'https://scontent-dft4-2.xx.fbcdn.net/v/t31.0-8/14615633_10108262526203175_477664095445974644_o.jpg?oh=41cf6b197db119373a5b24857570dff0&oe=5A4351F2'
+      image: 'https://www.redbeansandlife.com/wp-content/uploads/2014/08/Featured-Midsummer-Mardi-Gras-Late-at-Night-New-Orleans-Block-Party.jpg'
     }, {
-      key: 7,
-      name: 'Aaron',
-      image: 'https://scontent-dft4-2.xx.fbcdn.net/v/t1.0-9/427047_10101508273454825_674224487_n.jpg?oh=a1dba32d1618546b454ce15a2171398c&oe=5A3D827C'
+      image: 'http://www.luxuryawaits.com/wp-content/uploads/2016/05/trombone-jazzfest-20161.jpg'
     }, {
-      key: 7,
-      name: 'Aaron',
-      image: 'https://scontent-dft4-2.xx.fbcdn.net/v/t1.0-9/1917802_975240228725_1539824_n.jpg?oh=c3aa630e16c3ffa864c81c2cd7ba1e0f&oe=5A73866B'
+      image: 'http://img1.10bestmedia.com/Images/Photos/33049/p-monteleone-hotel-carousel-bar-new-orleans-la-usa-nightlife-lounges-hotel-bar-222016_54_990x660_201405311531.jpg'
+    }, {
+      image: 'http://d1bhvwz6nty0cr.cloudfront.net/wp-content/uploads/20170117100837/DallasArtsDistrict_EventHero_52.jpg'
+    }, {
+      image: 'https://media.timeout.com/images/100729813/image.jpg'
     },
   ]
 }

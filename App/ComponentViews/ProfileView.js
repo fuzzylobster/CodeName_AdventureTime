@@ -61,12 +61,12 @@ export default class ProfileView extends Component {
         <Row size={43}>
           <View style={styles.container}>
             <ProfileHeader user={this.props.user}/>
-            <ProfileBadges />
+            <ProfileBadges adventures={this.props.adventures} />
           </View>
         </Row>
         <Row size={15}>
           <View>
-            <ProfilePhotos modalChange={this.setModalVisible.bind(this)} userPhotos={this.props.adventures} stockPhotos={this.props.stockPhotos} />
+            <ProfilePhotos modalChange={this.setModalVisible.bind(this)} photos={this.props.photos} stockPhotos={this.props.stockPhotos} />
           </View>
         </Row>
         <Row size={42}>
