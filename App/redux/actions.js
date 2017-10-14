@@ -28,5 +28,14 @@ export function Select_user(User) {
       type: 'SET_CURRENTSTOP',
       stop,
     };
+
+    
   
+}
+
+export function Gps_Marker(gps) {
+  return {
+    type: 'SET_GPS',
+    gps,
+  };
 }

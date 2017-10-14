@@ -7,18 +7,18 @@ export default StyleSheet.create({
         //justifyContent: 'center',
         //alignItems: 'center',
         backgroundColor: '#F5FCFF',
-      }, 
-      modal: {
+    },
+    modal: {
         flex: 1,
         padding: 40,
         backgroundColor: '#000000'
-      },
-      image: {
-          flex: 1,
-          alignSelf: 'stretch',
-      },
-      text: {
-          color: '#ffffff',
-          alignSelf: 'flex-end',
-      },
+    },
+    image: {
+        flex: 1,
+        alignSelf: 'stretch',
+    },
+    text: {
+        color: '#ffffff',
+        alignSelf: 'flex-end',
+    },
 })

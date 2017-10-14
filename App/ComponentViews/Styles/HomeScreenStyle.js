@@ -23,7 +23,7 @@ export default StyleSheet.create({
         height: 90,
         borderRadius: 50,
         borderColor: 'rgba(0,0,0,0.4)',
-        borderWidth: 18
+        borderWidth: 9
       },
       profilePic: {
           flex: 1,

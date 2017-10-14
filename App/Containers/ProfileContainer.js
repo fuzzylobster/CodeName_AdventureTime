@@ -5,7 +5,7 @@ import ProfileView from '../ComponentViews/ProfileView'
 
 
 const mapStateToProps = (state) => {
-    return {user: state.people.user}
+    return {user: state.people.user, adventures: state.people.pastAdventures, stockPhotos: state.people.stockPhotos}
     
   }
   

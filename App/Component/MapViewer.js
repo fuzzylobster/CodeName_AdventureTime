@@ -19,25 +19,6 @@ const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO
 
 
 export default class MapViewer extends Component{
-  constructor(props){
-    super(props)
-
-  
-
-    this.state = {
-      initialPosition:{
-        latitude: 0,
-        longitude: 0,
-        latitudeDelta: 0,
-        longitudeDelta: 0
-      }, 
-      markerPosition: {
-        latitude: 0,
-        longitude: 0
-      }
-
-    }
-  }
      watchID =  null
     componentWillMount(){
       navigator.geolocation.getCurrentPosition((position) => {
@@ -50,8 +31,8 @@ export default class MapViewer extends Component{
           latitudeDelta: LATITUDE_DELTA,
           longitudeDelta: LONGITUDE_DELTA
         }
-        this.setState({initialPosition: initialRegion})
-        this.setState({markerPosition: initialRegion})
+        this.props.changeLocation(initialRegion)
+        this.props.changeGps(initialRegion)
       },
       (error) => alert(JSON.stringify(error)),
       {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000})
@@ -66,8 +47,8 @@ export default class MapViewer extends Component{
           latitudeDelta: LATITUDE_DELTA,
           longitudeDelta: LONGITUDE_DELTA
         }
-        this.setState({initialPosition: lastRegion})
-        this.setState({markerPosition: lastRegion})
+        this.props.changeLocation(lastRegion)
+        this.props.changeGps(lastRegion)
 
       })
     }
@@ -79,9 +60,9 @@ export default class MapViewer extends Component{
           <View style ={styles.container}>
             <MapView
               style={styles.map}
-              region={this.state.initialPosition}>
+              region={this.props.getLocation}>
             <MapView.Marker
-      coordinate={this.state.markerPosition}>
+      coordinate={this.props.getGps}>
       <View style={styles.radius}>
         <View style={styles.marker}>
         </View>

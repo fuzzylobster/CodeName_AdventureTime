@@ -1,6 +1,7 @@
 import { StackNavigator } from 'react-navigation'
 import HomeScreenContainer from '../Containers/HomeScreenContainer'
 import LoginContainer from '../Containers/LoginContainer'
+import RoutesContainer from '../Containers/RoutesContainer'
 import Profile from '../Containers/ProfileContainer'
 import RouteViewer from '../ComponentViews/RouteViewer'
 import styles from './Styles/NavStyle'
@@ -10,7 +11,7 @@ import App from '../Containers/App'
 // Manifest of possible screens
 export const Nav = StackNavigator({
   HomeScreenContainer: { screen: HomeScreenContainer },
-  RouteViewer: { screen: RouteViewer },
+  RoutesContainer: { screen: RoutesContainer },
   LoginContainer: { screen: LoginContainer },
   Profile: { screen: Profile }
 }, {
