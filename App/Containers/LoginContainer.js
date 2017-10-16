@@ -1,29 +1,21 @@
-import { connect } from 'react-redux'
-import {Select_user } from '../redux/actions'
-import LoginScreen from '../ComponentViews/LoginScreen'
+import { connect } from "react-redux";
+import { Select_user } from "../redux/actions";
+import LoginScreen from "../ComponentViews/LoginScreen";
 
+const mapStateToProps = state => {
+  return { user: state.people.user };
+};
 
-
-
-const mapStateToProps = (state) => {
-    return {user: state.people.user}
-    
-  }
-  
-  const mapDispatchToProps = dispatch => {
-    return {
-        onLogin: (user)  => {
-          dispatch(Select_user(user))
-        }
-      }
-      
-    
+const mapDispatchToProps = dispatch => {
+  return {
+    onLogin: user => {
+      dispatch(Select_user(user));
     }
-  
-  
-  const LoginContainer = connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(LoginScreen)
-  
-  export default LoginContainer
+  };
+};
+
+const LoginContainer = connect(mapStateToProps, mapDispatchToProps)(
+  LoginScreen
+);
+
+export default LoginContainer;

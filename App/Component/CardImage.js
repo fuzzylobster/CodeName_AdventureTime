@@ -1,12 +1,23 @@
-import React, { Component } from 'react';
-import { Image } from 'react-native';
-import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
-import MapViewer from './MapViewer'
+import React, { Component } from "react";
+import { Image } from "react-native";
+import {
+  Container,
+  Header,
+  Content,
+  Card,
+  CardItem,
+  Thumbnail,
+  Text,
+  Button,
+  Icon,
+  Left,
+  Body,
+  Right
+} from "native-base";
+import MapViewer from "./MapViewer";
 export default class CardImage extends Component {
   constructor(props) {
-    super(props)
-
-
+    super(props);
   }
   render() {
     return (
@@ -15,7 +26,7 @@ export default class CardImage extends Component {
           <Card>
             <CardItem>
               <Left>
-                <Thumbnail source={{uri: this.props.user.picture.data.url}} />
+                <Thumbnail source={{ uri: this.props.user.picture.data.url }} />
                 <Body>
                   <Text>{this.props.adventure.name}</Text>
                   <Text note>{this.props.adventure.city}</Text>
@@ -23,7 +34,10 @@ export default class CardImage extends Component {
               </Left>
             </CardItem>
             <CardItem cardBody>
-            <Image source={{uri: this.props.adventure.cover}} style={{height: 200, width: null, flex: 1}}/>
+              <Image
+                source={{ uri: this.props.adventure.cover }}
+                style={{ height: 200, width: null, flex: 1 }}
+              />
             </CardItem>
             <CardItem>
               <Left>

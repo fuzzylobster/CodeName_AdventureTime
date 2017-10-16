@@ -1,20 +1,10 @@
-import React, { Component } from 'react';
-import {
-  Platform,
-  Text,
-  View
-} from 'react-native';
+import React, { Component } from "react";
+import { Platform, Text, View } from "react-native";
 
-import styles from './Styles/ProfileUserPhotoStyle'
+import styles from "./Styles/ProfileUserPhotoStyle";
 
-
-export default class ProfileUserPhoto extends Component{
+export default class ProfileUserPhoto extends Component {
   render() {
-    return (
-      <View style={styles.container}>
-        
-      </View>
-    );
+    return <View style={styles.container} />;
   }
 }
-

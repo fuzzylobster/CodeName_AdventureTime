@@ -2,40 +2,35 @@
 
 export function Select_user(User) {
   return {
-    type: 'SET_USER',
-    User,
+    type: "SET_USER",
+    User
   };
 }
 
+export function Current_adventure(adv) {
+  return {
+    type: "SET_ADVENTURE",
+    Adv
+  };
+}
 
-  export function Current_adventure(adv) {
-    return {
-      type: 'SET_ADVENTURE',
-      Adv,
-    };
-  }
+export function Current_location(loc) {
+  return {
+    type: "SET_LOCATION",
+    loc
+  };
+}
 
-  export function Current_location(loc) {
-      return {
-        type: 'SET_LOCATION',
-        loc,
-      };
-    
-  }
-
-  export function Current_Stop(stop) {
-    return {
-      type: 'SET_CURRENTSTOP',
-      stop,
-    };
-
-    
-  
+export function Current_Stop(stop) {
+  return {
+    type: "SET_CURRENTSTOP",
+    stop
+  };
 }
 
 export function Gps_Marker(gps) {
   return {
-    type: 'SET_GPS',
-    gps,
+    type: "SET_GPS",
+    gps
   };
 }

@@ -1,11 +1,17 @@
-import React, { Component } from 'react';
-import { Container, Header, Content, Footer, FooterTab, Button, Icon } from 'native-base';
+import React, { Component } from "react";
+import {
+  Container,
+  Header,
+  Content,
+  Footer,
+  FooterTab,
+  Button,
+  Icon
+} from "native-base";
 export default class FooterMenu extends Component {
   render() {
     return (
-      <Container         onPress={() =>
-        navigate('Profile')
-      }>
+      <Container onPress={() => navigate("Profile")}>
         <Header />
         <Content />
         <Footer>
