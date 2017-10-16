@@ -4,6 +4,8 @@ const initialState = {
     latitude: 29,
     longitude: -90
   },
+  Background:
+    "https://previews.123rf.com/images/katjagerasimova/katjagerasimova1603/katjagerasimova160300140/54234479-Hand-drawn-mountain-wind-rose-compass-Tribal-template-in-boho-style-Isolated-Vector-illustration-Inv-Stock-Vector.jpg",
   location: {
     latitude: 0,
     longitude: 0,
@@ -56,6 +58,11 @@ const initialState = {
     }
   ],
   CurrentStop: {},
+  test: [
+    "https://az616578.vo.msecnd.net/files/2016/09/11/6360922286821585541523176234_party%20school.jpg",
+    "http://lukacsbaths.com/wp-content/uploads/2013/10/Szechenyi-Bath-Party-September-7-Sparty-Girl-Wow-Lights.jpg",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXV6QAWuF9h_D0jHLsDPibomXqvUT_FSVJiJPrfj7tkjlmR4MfUg"
+  ],
   stockPhotos: [
     {
       image:

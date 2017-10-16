@@ -14,7 +14,6 @@ import {
   Body,
   Right
 } from "native-base";
-import MapViewer from "./MapViewer";
 export default class CardImage extends Component {
   constructor(props) {
     super(props);

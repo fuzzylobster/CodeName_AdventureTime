@@ -1,12 +1,13 @@
 import { connect } from "react-redux";
-import ProfileView from "../ComponentViews/ProfileView";
+import ProfileView from "../Component/ProfileView/ProfileView";
 
 const mapStateToProps = state => {
   return {
     user: state.people.user,
     photos: state.people.photos,
     adventures: state.people.pastAdventures,
-    stockPhotos: state.people.stockPhotos
+    stockPhotos: state.people.stockPhotos,
+    background: state.people.Background
   };
 };
 

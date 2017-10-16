@@ -3,7 +3,7 @@ import HomeScreenContainer from "../Containers/HomeScreenContainer";
 import LoginContainer from "../Containers/LoginContainer";
 import RoutesContainer from "../Containers/RoutesContainer";
 import Profile from "../Containers/ProfileContainer";
-import RouteViewer from "../ComponentViews/RouteViewer";
+//import RouteViewer from "../ComponentViews/RouteViewer";
 import styles from "./Styles/NavStyle";
 import { connect } from "react-redux";
 import App from "../Containers/App";

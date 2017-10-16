@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Platform, StyleSheet, Text, View, Button, Image } from "react-native";
-import FooterMenu from "../Component/Footer";
-import ProfilePastAdv from "../Component/ProfilePastAdv";
+import FooterMenu from "../Footer";
+import ProfilePastAdv from "../ProfileView/ProfilePastAdv";
 import { Col, Row, Grid } from "react-native-easy-grid";
-import styles from "./Styles/HomeScreenStyle";
+import styles from "./../Styles/HomeScreenStyle";
 
 export default class HomeScreen extends Component {
   constructor(props) {

@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { Select_user } from "../redux/actions";
-import LoginScreen from "../ComponentViews/LoginScreen";
+import LoginScreen from "../Component/LoginView/LoginScreen";
 
 const mapStateToProps = state => {
   return { user: state.people.user };

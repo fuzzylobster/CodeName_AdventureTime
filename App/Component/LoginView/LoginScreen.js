@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Select_user } from "../redux/actions";
+import { Select_user } from "../../redux/actions";
 import {
   Container,
   Header,
@@ -15,9 +15,9 @@ import {
 import { SocialIcon } from "react-native-elements";
 import { Platform, View, Image, TouchableOpacity } from "react-native";
 
-import styles from "./Styles/LoginScreenStyle";
+import styles from "./../Styles/LoginScreenStyle";
 import { google, facebook, twitter, tumblr } from "react-native-simple-auth";
-import Api from "../Services/Api";
+import Api from "../../Services/Api";
 
 export default class LoginScreen extends Component {
   api = {};
