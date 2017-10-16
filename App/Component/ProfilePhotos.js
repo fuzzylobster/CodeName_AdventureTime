@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   Platform,
   Text,
@@ -8,47 +8,43 @@ import {
   TouchableOpacity,
   TouchableHighlight,
   Modal
-} from 'react-native';
+} from "react-native";
 
-import styles from './Styles/ProfilePhotosStyle'
-
-
+import styles from "./Styles/ProfilePhotosStyle";
 
 export default class ProfilePhotos extends Component {
-  constructor(props){
-    super(props)
-
-
+  constructor(props) {
+    super(props);
   }
   _keyExtractor = (item, index) => item.id;
 
   _camRoll() {
-    let combinedPhotos = []
+    let combinedPhotos = [];
     this.props.photos.forEach(function(photo) {
-      combinedPhotos.push(photo)
+      combinedPhotos.push(photo);
     });
-    if(combinedPhotos.length < 10){
+    if (combinedPhotos.length < 10) {
       let count = 0;
-      while(combinedPhotos.length < 10){
-        combinedPhotos.push(this.props.stockPhotos[count])
-        count++
+      while (combinedPhotos.length < 10) {
+        combinedPhotos.push(this.props.stockPhotos[count]);
+        count++;
       }
     }
-    return combinedPhotos
+    return combinedPhotos;
   }
-  
+
   _renderItem(item) {
-    
     return (
-      <TouchableHighlight key={item.id} onPress={() => {
-        this.props.modalChange(true, item.image)
-      }}>
-      <Image style={styles.item} source={{ uri: item.image }}>
-      
-      </Image>
+      <TouchableHighlight
+        key={item.id}
+        onPress={() => {
+          this.props.modalChange(true, item.image);
+        }}
+      >
+        <Image style={styles.item} source={{ uri: item.image }} />
       </TouchableHighlight>
-    )
-  };
+    );
+  }
 
   render() {
     return (
@@ -57,12 +53,8 @@ export default class ProfilePhotos extends Component {
         horizontal
         renderItem={({ item }) => this._renderItem(item)}
         data={this._camRoll()}
-        keyExtractor={({ item }) =>this._keyExtractor}
-      >
-      
-    </FlatList>
-
-
-    )
+        keyExtractor={({ item }) => this._keyExtractor}
+      />
+    );
   }
 }
