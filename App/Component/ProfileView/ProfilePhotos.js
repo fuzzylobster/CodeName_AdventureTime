@@ -10,7 +10,7 @@ import {
   Modal
 } from "react-native";
 
-import styles from "./Styles/ProfilePhotosStyle";
+import styles from "./../Styles/ProfilePhotosStyle";
 
 export default class ProfilePhotos extends Component {
   constructor(props) {

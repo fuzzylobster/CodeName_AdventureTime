@@ -4,6 +4,8 @@ const initialState = {
     latitude: 29,
     longitude: -90
   },
+  Background:
+    "https://previews.123rf.com/images/katjagerasimova/katjagerasimova1603/katjagerasimova160300140/54234479-Hand-drawn-mountain-wind-rose-compass-Tribal-template-in-boho-style-Isolated-Vector-illustration-Inv-Stock-Vector.jpg",
   location: {
     latitude: 0,
     longitude: 0,

@@ -10,10 +10,9 @@ import {
   Label
 } from "native-base";
 
-import ProfileHeader from "../Component/ProfileHeader";
-import FooterNav from "../Component/Footer";
-import MapViewer from "../Component/MapViewer";
-import styles from "./Styles/HomeScreenStyle";
+import FooterNav from "../Footer";
+import MapViewer from "./MapViewer";
+import styles from "./../Styles/HomeScreenStyle";
 
 export default class RouteViewer extends Component {
   render() {

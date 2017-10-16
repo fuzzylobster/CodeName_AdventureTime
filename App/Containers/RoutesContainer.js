@@ -5,7 +5,7 @@ import {
   Current_Stop,
   Gps_Marker
 } from "../redux/actions";
-import RouteViewer from "../ComponentViews/RouteViewer";
+import RouteViewer from "../Component/MapView/RouteViewer";
 
 const mapStateToProps = state => {
   return {

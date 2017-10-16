@@ -3,14 +3,14 @@ import { Platform, Text, View, Image, Modal } from "react-native";
 import { Container, Header, Content } from "native-base";
 import { Col, Row, Grid } from "react-native-easy-grid";
 import Orientation from "react-native-orientation";
-import FooterMenu from "../Component/Footer";
-import ProfileHeader from "../Component/ProfileHeader";
-import ProfileBadges from "../Component/ProfileBadges";
-import ProfilePastAdv from "../Component/ProfilePastAdv";
-import ProfilePhotos from "../Component/ProfilePhotos";
-import ProfileUserPhoto from "../Component/ProfileUserPhoto";
+import FooterMenu from "../Footer";
+import ProfileHeader from "./ProfileHeader";
+import ProfileBadges from "./ProfileBadges";
+import ProfilePastAdv from "./ProfilePastAdv";
+import ProfilePhotos from "./ProfilePhotos";
+import ProfileUserPhoto from "./ProfileUserPhoto";
 
-import styles from "./Styles/ProfileViewStyle";
+import styles from "./../Styles/ProfileViewStyle";
 
 export default class ProfileView extends Component {
   constructor(props) {
@@ -60,7 +60,10 @@ export default class ProfileView extends Component {
         </Modal>
         <Row size={43}>
           <View style={styles.container}>
-            <ProfileHeader user={this.props.user} />
+            <ProfileHeader
+              user={this.props.user}
+              background={this.props.background}
+            />
             <ProfileBadges adventures={this.props.adventures} />
           </View>
         </Row>

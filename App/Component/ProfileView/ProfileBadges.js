@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Platform, Text, View } from "react-native";
 
-import styles from "./Styles/ProfileBadgesStyle";
+import styles from "./../Styles/ProfileBadgesStyle";
 
 export default class ProfileBadges extends Component {
   milesTrekked() {
