@@ -45,7 +45,7 @@ const initialState = {
       likes: 12,
       comments: 10,
       distance: 3,
-      badge: ["Trail Maker"]
+      badges: ["Trail Maker"]
     },
     {
       cover:
@@ -57,7 +57,16 @@ const initialState = {
       badge: []
     }
   ],
-  CurrentStop: {},
+  CurrentStop: {
+    name: 'Operation Spark',
+    location: {lat: -90.070206, lng: 29.946344}
+  },
+  badges: [
+    {
+      name: "Trail Maker",
+      location: null,
+    }
+  ],
   test: [
     "https://az616578.vo.msecnd.net/files/2016/09/11/6360922286821585541523176234_party%20school.jpg",
     "http://lukacsbaths.com/wp-content/uploads/2013/10/Szechenyi-Bath-Party-September-7-Sparty-Girl-Wow-Lights.jpg",
@@ -131,6 +140,12 @@ export default function peopleReducer(state = initialState, action) {
     case "SET_GPS":
       return Object.assign({}, state, {
         gps: action.gps
+      });
+    case "ADD_BADGE":
+      return Object.assign({}, state, {
+        badges: state.badges.concat({
+          name: action.badge
+        })
       });
     default:
       return state;

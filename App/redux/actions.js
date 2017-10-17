@@ -34,3 +34,10 @@ export function Gps_Marker(gps) {
     gps
   };
 }
+
+export function Add_Badge(badge) {
+  return {
+    type: "ADD_BADGE",
+    badge
+  };
+}

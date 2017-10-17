@@ -13,6 +13,6 @@ export default class HomeScreen extends Component {
     super(props);
   }
   render() {
-    return <HomeScreenHeader user={this.props.user} />;
+    return <HomeScreenHeader user={this.props.user} navigation={this.props.navigation}/>;
   }
 }

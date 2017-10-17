@@ -89,6 +89,17 @@ export default class LoginScreen extends Component {
         this.setState({ user: { error: error } });
       });
   }
+    localSignIn() {
+    this.props.onLogin({
+      name: 'Jake Pepple',
+      picture: {
+        data: {
+          url: 'https://scontent-dft4-2.xx.fbcdn.net/v/t1.0-9/15727364_10154052149705703_3184875544267975875_n.jpg?oh=a8616a9033bd329abfff761c3918874d&oe=5A74A6B2'
+        }
+      }
+    });
+    this.props.navigation.navigate('HomeScreenContainer')
+  }
 
   render() {
     return (
@@ -113,6 +124,17 @@ export default class LoginScreen extends Component {
             style={{ backgroundColor: "red" }}
             onPress={() => {
               this.googleSignIn();
+            }}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <SocialIcon
+            title="Sign In With Default"
+            button
+            type="google"
+            style={{ backgroundColor: "red" }}
+            onPress={() => {
+              this.localSignIn();
             }}
           />
         </TouchableOpacity>

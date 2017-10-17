@@ -7,7 +7,8 @@ import {
   Form,
   Item,
   Input,
-  Label
+  Label,
+
 } from "native-base";
 
 import FooterNav from "../Footer";
@@ -29,6 +30,15 @@ export default class RouteViewer extends Component {
           getGps={this.props.gps}
           getStop={this.props.waypoint}
           getRoute={this.props.route}
+        />
+        <Button
+          title="AR View"
+          style={{alignSelf: "center" }}
+          onPress={() => {
+
+            this.props.navigation.navigate('ARContainer');
+          }
+          }
         />
       </View>
     );

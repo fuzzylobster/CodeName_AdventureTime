@@ -21,14 +21,14 @@ export default class ProfileBadges extends Component {
     return numCities.length;
   }
   badges() {
-    let badges = [];
-    for (var i = 0; i < this.props.adventures; i++) {
-      for (var j = 0; j < this.props.adventures[i].badges; j++) {
-        if (numCities.indexOf(this.props.adventures[i].badges[j]) === -1) {
-          numCities.push(this.props.adventures[i].badges[j]);
-        }
-      }
-    }
+    let badges = this.props.collectedBadges;
+    // for (var i = 0; i < this.props.adventures; i++) {
+    //   for (var j = 0; j < this.props.adventures[i].badges; j++) {
+    //     if (numCities.indexOf(this.props.adventures[i].badges[j]) === -1) {
+    //       numCities.push(this.props.adventures[i].badges[j]);
+    //     }
+    //   }
+    // }
     return badges.length;
   }
   render() {
