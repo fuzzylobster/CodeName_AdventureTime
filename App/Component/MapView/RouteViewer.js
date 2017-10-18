@@ -30,14 +30,11 @@ export default class RouteViewer extends Component {
       gps: this.props.gps
     };
     return (
-      <View style={styles.container}>
-        <MapViewer
-          setLocation={this.props.set_location}
-          setGps={this.props.set_gps_marker}
-          gps={this.props.gps}
-          loc={this.props.loc}
-        />
-      </View>
+      <PlaceSearch
+        setMarker={this.props.add_marker}
+        markers={this.props.markers}
+        navigation={this.props.navigation}
+      />
     );
   }
 }
@@ -46,4 +43,11 @@ export default class RouteViewer extends Component {
 // setMarker={this.props.add_marker}
 // markers={this.props.markers}
 // navigation={this.props.navigation}
+// />
+
+// <MapViewer
+// setLocation={this.props.set_location}
+// setGps={this.props.set_gps_marker}
+// gps={this.props.gps}
+// loc={this.props.loc}
 // />

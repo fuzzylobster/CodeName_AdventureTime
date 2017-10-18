@@ -14,15 +14,13 @@ export default class HomeScreen extends Component {
   }
   render() {
     return (
-      <View>
-        <HomeScreenHeader
-          user={this.props.user}
-          navigation={this.props.navigation}
-        />
-        <Text>{Object.keys(this.props.token)}</Text>
-        <Text>{JSON.stringify(this.props.token.data)}</Text>
-      </View>
+      <HomeScreenHeader
+        user={this.props.user}
+        navigation={this.props.navigation}
+      />
     );
   }
 }
 // <Text>{JSON.stringify(this.props.token.headers || 1)}</Text>
+// <Text>{Object.keys(this.props.token)}</Text>
+// <Text>{JSON.stringify(this.props.token.data)}</Text>

@@ -14,7 +14,7 @@ const mapStateToProps = state => {
     loc: state.people.location,
     waypoint: state.people.CurrentStop,
     gps: state.people.gps,
-    markers: state.people.markerLocations
+    markers: state.people.adventure.markerLocations
   };
 };
 

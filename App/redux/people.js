@@ -32,12 +32,21 @@ const initialState = {
   adventure: {
     markerLocations: [
       {
-        latitude: 0,
-        longitude: 0
+        lat: 40.1884979,
+        lng: 29.061018
+      },
+      {
+        lat: 41.0082,
+        lng: 28.9784
       }
     ]
   },
-  markerLocations: [],
+  markerLocations: [
+    {
+      latitude: 29,
+      longitude: -90
+    }
+  ],
   pastAdventures: [
     {
       cover:
@@ -130,7 +139,9 @@ export default function peopleReducer(state = initialState, action) {
       });
     case "SET_Markers":
       return Object.assign({}, state, {
-        markerLocations: state.markerLocations.concat(action.mark)
+        adventure: {
+          markerLocations: state.adventure.markerLocations.concat(action.mark)
+        }
       });
     default:
       return state;
