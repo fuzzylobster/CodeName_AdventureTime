@@ -44,7 +44,7 @@ export default class LoginScreen extends Component {
       }
     });
 
-    this.props.navigation.navigate("RoutesContainer");
+    this.props.navigation.navigate("HomeScreenContainer");
   }
   fbSignIn() {
     facebook({
