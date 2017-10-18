@@ -13,7 +13,7 @@ import {
   Text
 } from "native-base";
 import { SocialIcon } from "react-native-elements";
-import { Platform, View, Image, TouchableOpacity } from "react-native";
+import { Platform, View, Image, TouchableOpacity, Alert } from "react-native";
 
 import styles from "./../Styles/LoginScreenStyle";
 import { google, facebook, twitter, tumblr } from "react-native-simple-auth";
@@ -29,10 +29,16 @@ export default class LoginScreen extends Component {
       .then(info => {
         this.props.onLogin(info.user);
         const api = Api.create();
-        api.postUserData({
-          token: info.credentials.id_token,
-          authType: "facebook"
-        });
+        api
+          .postUserData({
+            token: info.credentials.id_token,
+            authType: "facebook"
+          })
+          .then(response => response.json())
+          .then(responseData => {
+            Alert.alert("Login Success!", "Fuck ya");
+          })
+          .done();
         if (this.props.user.name) {
           this.props.navigation.navigate("HomeScreenContainer");
         }
@@ -61,10 +67,17 @@ export default class LoginScreen extends Component {
         };
         this.props.onLogin(obj);
         const api = Api.create();
-        api.postUserData({
-          token: info.credentials.id_token,
-          authType: "google"
-        });
+
+        api
+          .postUserData({
+            token: info.credentials.id_token,
+            authType: "google"
+          })
+          .then(response => {
+            this.props.stop(response);
+            Alert.alert(JSON.stringify(response));
+          });
+
         if (this.props.user.name) {
           this.props.navigation.navigate("HomeScreenContainer");
         }
@@ -73,23 +86,6 @@ export default class LoginScreen extends Component {
         this.setState({ user: { error: error } });
       });
   }
-  twitSignIn() {
-    twitter({
-      appId: "QrBPzLNCUKgA4nwIyU22UXbiv",
-      appSecret: "1PreBeVwoscQhWAHChNWsIBwEtjvExqHim25AmI6GnzE6iV2XT",
-      callback: "adventuretime2://authorize"
-    })
-      .then(info => {
-        this.props.onLogin(info.user);
-        if (this.props.user.name) {
-          this.props.navigation.navigate("HomeScreen");
-        }
-      })
-      .catch(error => {
-        this.setState({ user: { error: error } });
-      });
-  }
-
   render() {
     return (
       <View style={{ flex: 1, justifyContent: "center" }}>

@@ -6,7 +6,7 @@ import {
   Gps_Marker,
   Marker_locations
 } from "../redux/actions";
-import RouteViewer from "../Component/MapView/RouteViewer";
+import display from "../Component/MapView/display";
 
 const mapStateToProps = state => {
   return {
@@ -41,8 +41,6 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const RoutesContainer = connect(mapStateToProps, mapDispatchToProps)(
-  RouteViewer
-);
+const testContainer = connect(mapStateToProps, mapDispatchToProps)(display);
 
-export default RoutesContainer;
+export default testContainer;

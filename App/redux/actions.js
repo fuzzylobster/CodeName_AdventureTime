@@ -34,3 +34,10 @@ export function Gps_Marker(gps) {
     gps
   };
 }
+
+export function Marker_locations(mark) {
+  return {
+    type: "SET_Markers",
+    mark
+  };
+}

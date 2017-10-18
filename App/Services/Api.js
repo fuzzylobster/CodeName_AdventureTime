@@ -1,5 +1,5 @@
 import apisauce from "apisauce";
-const create = (baseURL = "http://85c6b3d2.ngrok.io") => {
+const create = (baseURL = "http://7bd6182c.ngrok.io") => {
   const api = apisauce.create({
     baseURL,
     headers: {
@@ -7,10 +7,11 @@ const create = (baseURL = "http://85c6b3d2.ngrok.io") => {
     },
     timeout: 10000
   });
-
-  const postUserData = user => api.post("/authentication", user);
+  const getSign = () => api.get("/auth/goggle");
+  const postUserData = user => api.post("/users", user);
   return {
-    postUserData
+    postUserData,
+    getSign
   };
 };
 
