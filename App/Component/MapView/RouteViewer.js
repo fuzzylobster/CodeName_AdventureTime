@@ -12,25 +12,38 @@ import {
 
 import FooterNav from "../Footer";
 import MapViewer from "./MapViewer";
+import PlaceSearch from "./PlaceSearch";
 import styles from "./../Styles/HomeScreenStyle";
 
 export default class RouteViewer extends Component {
   render() {
-    // const { navigate } = this.props.navigation;
-    // const change = {  location: this.props.set_location, gps: this.props.set_gps_marker, stop: this.props.set_waypoint }
-    // const info = {route: this.props.route, waypoint: this.props.waypoint, loc: this.props.loc, gps: this.props.gps}
+    const { navigate } = this.props.navigation;
+    const change = {
+      location: this.props.set_location,
+      gps: this.props.set_gps_marker,
+      stop: this.props.set_waypoint
+    };
+    const info = {
+      route: this.props.route,
+      waypoint: this.props.waypoint,
+      loc: this.props.loc,
+      gps: this.props.gps
+    };
     return (
       <View style={styles.container}>
         <MapViewer
-          changeLocation={this.props.set_location}
-          changeGps={this.props.set_gps_marker}
-          changeStop={this.props.set_waypoint}
-          getLocation={this.props.loc}
-          getGps={this.props.gps}
-          getStop={this.props.waypoint}
-          getRoute={this.props.route}
+          setLocation={this.props.set_location}
+          setGps={this.props.set_gps_marker}
+          gps={this.props.gps}
+          loc={this.props.loc}
         />
       </View>
     );
   }
 }
+
+// <PlaceSearch
+// setMarker={this.props.add_marker}
+// markers={this.props.markers}
+// navigation={this.props.navigation}
+// />
