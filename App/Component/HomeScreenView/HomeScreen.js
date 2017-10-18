@@ -22,7 +22,7 @@ export default class HomeScreen extends Component {
           />
         </Row>
         <Row size={80}>
-          <HomeScreenBody />
+          <HomeScreenBody user={this.props.user} />
         </Row>
       </Grid>
     );

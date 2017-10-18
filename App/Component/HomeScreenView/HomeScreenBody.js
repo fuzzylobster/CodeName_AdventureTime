@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Platform, StyleSheet, Text, View, Button, Image } from "react-native";
+import { Platform, StyleSheet, Text, View, Image } from "react-native";
+import { Button, Card, DeckSwiper, Body, CardItem } from "native-base";
 import { Col, Row, Grid } from "react-native-easy-grid";
 
 export default class HomeScreen extends Component {
@@ -9,16 +10,41 @@ export default class HomeScreen extends Component {
   render() {
     return (
       <Grid>
-        <Row>
-          <Text>Greeting</Text>
+        <Row style={styles.greetingRow}>
+          <Text style={styles.greetingText}>Welcome, {this.props.user.name}!</Text>
         </Row>
         <Row>
-          <Text>Card Slider</Text>
+          <Card>
+            <CardItem>
+              <Text>Card Slider</Text>
+            </CardItem>
+          </Card>
         </Row>
-        <Row>
-          <Text>Select Button</Text>
+        <Row style={styles.select}>
+          <Button style={styles.selectButton}>
+            <Text style={styles.selectText}>I like this one!</Text>
+          </Button>
         </Row>
       </Grid>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  greetingRow: {
+    justifyContent: 'space-around'
+  },
+  greetingText: {
+    fontSize: 25
+  },
+  select: {
+    justifyContent: 'space-around'
+  },
+  selectButton: {
+    padding: 10
+  },
+  selectText: {
+    color: '#FFFFFF',
+    fontWeight: 'bold'
+  }
+});
