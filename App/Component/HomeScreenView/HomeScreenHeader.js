@@ -12,7 +12,7 @@ export default class HomeScreen extends Component {
   render() {
     return (
       <Grid>
-        <Row size={15}>
+        <Row>
           <Row size={70}>
             <Col size={22} />
             <Col
@@ -51,9 +51,6 @@ export default class HomeScreen extends Component {
           </Row>
         </Row>
         <Row size={10} />
-        <Row size={40} />
-
-        <Row size={30} />
       </Grid>
     );
   }

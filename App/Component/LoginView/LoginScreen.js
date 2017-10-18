@@ -9,11 +9,17 @@ import {
   Item,
   Input,
   Label,
-  Button,
   Text
 } from "native-base";
 import { SocialIcon } from "react-native-elements";
-import { Platform, View, Image, TouchableOpacity, Alert } from "react-native";
+import {
+  Platform,
+  View,
+  Image,
+  TouchableOpacity,
+  Button,
+  Alert
+} from "react-native";
 
 import styles from "./../Styles/LoginScreenStyle";
 import { google, facebook, twitter, tumblr } from "react-native-simple-auth";
@@ -21,6 +27,25 @@ import Api from "../../Services/Api";
 
 export default class LoginScreen extends Component {
   api = {};
+  blank() {
+    this.props.onLogin({
+      id: 1,
+      name: "Dev Mode",
+      First_name: "Dev",
+      Last_name: "Mode",
+      verified: "True",
+      email: "DevMode.com",
+      link: "www.google.com",
+      picture: {
+        data: {
+          url:
+            "https://www.allworship.com/wp-content/uploads/2015/06/bigstock-Work-In-Progress-Concept-73569091-640x582.jpg"
+        }
+      }
+    });
+
+    this.props.navigation.navigate("RoutesContainer");
+  }
   fbSignIn() {
     facebook({
       appId: "1906030709413245",
@@ -79,7 +104,7 @@ export default class LoginScreen extends Component {
           });
 
         if (this.props.user.name) {
-          this.props.navigation.navigate("HomeScreenContainer");
+          this.props.navigation.navigate("RoutesContainer");
         }
       })
       .catch(error => {
@@ -90,10 +115,8 @@ export default class LoginScreen extends Component {
     return (
       <View style={{ flex: 1, justifyContent: "center" }}>
         <TouchableOpacity>
-          <SocialIcon
+          <Button
             title="Sign In With Facebook"
-            button
-            type="facebook"
             style={{ backgroundColor: "blue" }}
             onPress={() => {
               this.fbSignIn();
@@ -102,13 +125,20 @@ export default class LoginScreen extends Component {
         </TouchableOpacity>
 
         <TouchableOpacity>
-          <SocialIcon
+          <Button
             title="Sign In With Google"
-            button
-            type="google"
             style={{ backgroundColor: "red" }}
             onPress={() => {
               this.googleSignIn();
+            }}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Button
+            title="Sign In With blank"
+            style={{ backgroundColor: "red" }}
+            onPress={() => {
+              this.blank();
             }}
           />
         </TouchableOpacity>
