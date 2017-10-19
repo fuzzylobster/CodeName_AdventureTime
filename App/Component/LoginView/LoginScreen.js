@@ -100,8 +100,12 @@ export default class LoginScreen extends Component {
           })
           .then(response => {
             this.props.stop(response);
-            Alert.alert(JSON.stringify(response));
+            // console.log(JSON.stringify(response.data));
+            response.json()
           });
+          // }).then(responseData => {
+          //   this._onValueChange(STORAGE_KEY, responseData.id_token);
+          // });
 
         if (this.props.user.name) {
           this.props.navigation.navigate("RoutesContainer");
