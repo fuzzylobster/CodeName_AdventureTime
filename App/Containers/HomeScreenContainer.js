@@ -3,7 +3,7 @@ import { Select_user } from "../redux/actions";
 import HomeScreen from "../Component/HomeScreenView/HomeScreen";
 
 const mapStateToProps = state => {
-  return { user: state.people.user, token: state.people.CurrentStop };
+  return { user: state.people.user, token: state.people.CurrentStop, adventures: state.people.adventureType };
 };
 
 const mapDispatchToProps = dispatch => {
