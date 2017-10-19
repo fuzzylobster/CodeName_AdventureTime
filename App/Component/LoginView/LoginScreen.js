@@ -44,7 +44,7 @@ export default class LoginScreen extends Component {
       }
     });
 
-    this.props.navigation.navigate("RoutesContainer");
+    this.props.navigation.navigate("HomeScreenContainer");
   }
   fbSignIn() {
     facebook({
@@ -59,11 +59,11 @@ export default class LoginScreen extends Component {
             token: info.credentials.id_token,
             authType: "facebook"
           })
-          .then(response => response.json())
-          .then(responseData => {
-            Alert.alert("Login Success!", "Fuck ya");
-          })
-          .done();
+          // .then(response => response.json())
+          // .then(responseData => {
+          //   Alert.alert("Login Success!", "Fuck ya");
+          // })
+          // .done();
         if (this.props.user.name) {
           this.props.navigation.navigate("HomeScreenContainer");
         }

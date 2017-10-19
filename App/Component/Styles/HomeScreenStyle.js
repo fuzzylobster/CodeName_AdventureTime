@@ -19,11 +19,11 @@ export default StyleSheet.create({
     marginBottom: 5
   },
   profilePicWrap: {
-    width: 90,
-    height: 90,
+    width: 65,
+    height: 65,
     borderRadius: 50,
     borderColor: "rgba(0,0,0,0.4)",
-    borderWidth: 9
+    borderWidth: 5
   },
   profilePic: {
     flex: 1,
