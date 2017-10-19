@@ -18,15 +18,27 @@ import {
   Image,
   TouchableOpacity,
   Button,
-  Alert
+  Alert,
+  AsyncStorage
 } from "react-native";
 
 import styles from "./../Styles/LoginScreenStyle";
 import { google, facebook, twitter, tumblr } from "react-native-simple-auth";
 import Api from "../../Services/Api";
 
+var STORAGE_KEY = 'jwtToken';
+
 export default class LoginScreen extends Component {
   api = {};
+
+  async _onValueChange(item, selectedValue) {
+    try {
+      await AsyncStorage.setItem(item, selectedValue);
+    } catch (error) {
+      console.log('AsyncStorage error: ' + error.message);
+    }
+  };
+
   blank() {
     this.props.onLogin({
       id: 1,
@@ -101,11 +113,8 @@ export default class LoginScreen extends Component {
           .then(response => {
             this.props.stop(response);
             // console.log(JSON.stringify(response.data));
-            response.json()
+            this._onValueChange(STORAGE_KEY, response.data.jwtToken);
           });
-          // }).then(responseData => {
-          //   this._onValueChange(STORAGE_KEY, responseData.id_token);
-          // });
 
         if (this.props.user.name) {
           this.props.navigation.navigate("RoutesContainer");
