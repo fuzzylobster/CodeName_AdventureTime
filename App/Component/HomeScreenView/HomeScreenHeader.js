@@ -1,15 +1,24 @@
 import React, { Component } from "react";
-import { Platform, StyleSheet, Text, View, Image } from "react-native";
+import { Platform, StyleSheet, Text, View, Image, AsyncStorage } from "react-native";
 import { Button } from "native-base";
 import FooterMenu from "../Footer";
 import ProfilePastAdv from "../ProfileView/ProfilePastAdv";
 import { Col, Row, Grid } from "react-native-easy-grid";
 import styles from "./../Styles/HomeScreenStyle";
 
+var STORAGE_KEY = 'jwtToken';
+
 export default class HomeScreen extends Component {
   constructor(props) {
     super(props);
   }
+
+  async _showToken() {
+    var TOKEN = await AsyncStorage.getItem(STORAGE_KEY);
+    console.log(TOKEN);
+  }
+
+
   render() {
     return (
       <Grid>
@@ -27,6 +36,11 @@ export default class HomeScreen extends Component {
                 <Button style={styles2.buttonStyle}>
                   <Text style={styles2.buttonText}>
                     Log Out
+                  </Text>
+                </Button>
+                <Button style={styles2.buttonStyle} onPress={this._showToken} title="Experiment">
+                  <Text style={styles2.buttonText}>
+                    Experiment
                   </Text>
                 </Button>
             </Row>
