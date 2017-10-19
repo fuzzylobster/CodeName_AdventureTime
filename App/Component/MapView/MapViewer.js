@@ -37,7 +37,7 @@ export default class MapViewer extends Component {
   }
 
   watchLocation1() {
-    watchId = navigator.geolocation.getCurrentPosition(
+    navigator.geolocation.getCurrentPosition(
       position => {
         var lat = parseFloat(position.coords.latitude);
         var long = parseFloat(position.coords.longitude);
@@ -62,30 +62,37 @@ export default class MapViewer extends Component {
   }
 
   watchLocation2() {
-    this.watchID = navigator.geolocation.watchPosition(position => {
-      var lat = parseFloat(position.coords.latitude);
-      var long = parseFloat(position.coords.longitude);
+    this.watchID = navigator.geolocation.watchPosition(
+      position => {
+        var lat = parseFloat(position.coords.latitude);
+        var long = parseFloat(position.coords.longitude);
 
-      var lastRegion = {
-        latitude: lat,
-        longitude: long,
-        latitudeDelta: LATITUDE_DELTA,
-        longitudeDelta: LONGITUDE_DELTA
-      };
-      this.props.setLocation(lastRegion);
-      this.props.setGps(lastRegion);
-    });
+        var lastRegion = {
+          latitude: lat,
+          longitude: long,
+          latitudeDelta: LATITUDE_DELTA,
+          longitudeDelta: LONGITUDE_DELTA
+        };
+        this.props.setLocation(lastRegion);
+        this.props.setGps(lastRegion);
+      },
+      error => this.watchLocation2(),
+      {
+        enableHighAccuracy: true,
+        timeout: 20000,
+        maximumAge: 1000,
+        distanceFilter: 0.0000000000000001
+      }
+    );
   }
   componentWillUnmount() {
     navigator.geolocation.clearWatch(this.watchID);
   }
   render() {
     return (
-      <View style={styles.container}>
-        <MapView style={styles.map} region={this.props.location}>
-          <MapView.Marker coordinate={this.props.gps} />
-        </MapView>
-      </View>
+      <MapView style={styles.map} region={this.props.location}>
+        <MapView.Marker coordinate={this.props.gps} />
+      </MapView>
     );
   }
 }
