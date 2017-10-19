@@ -1,7 +1,15 @@
 import React, { Component } from "react";
-import { Platform, StyleSheet, Text, View, Image } from "react-native";
+import { Platform, StyleSheet, Text, View, Image, Dimensions } from "react-native";
 import { Button, Card, DeckSwiper, Body, CardItem } from "native-base";
 import { Col, Row, Grid } from "react-native-easy-grid";
+import Swiper from "react-native-swiper";
+import CardImage from "../CardImage";
+import ProfilePastAdv from "../ProfileView/ProfilePastAdv";
+
+const windowWidth = Dimensions.get("window").width;
+const gutter = 16;
+export const containerPadding = gutter * -2.25;
+export const swiperWidth = windowWidth - gutter * 4;
 
 export default class HomeScreen extends Component {
   constructor(props) {
@@ -10,17 +18,22 @@ export default class HomeScreen extends Component {
   render() {
     return (
       <Grid>
-        <Row style={styles.greetingRow}>
+        <Row style={styles.greetingRow} size={10}>
           <Text style={styles.greetingText}>Welcome, {this.props.user.name}!</Text>
         </Row>
-        <Row>
-          <Card>
-            <CardItem>
-              <Text>Card Slider</Text>
-            </CardItem>
-          </Card>
+        <Row style={styles.greetingRow} size={5}>
+          <Text style={styles.greetingText2}>What adventure should we take today?</Text>
         </Row>
-        <Row style={styles.select}>
+        <Row size={70}>
+          <Swiper style={styles.wrapper}>
+            {this.props.adventures.map((adventure, i) => (
+              <View style={styles.slide} key={i}>
+                <CardImage adventure={adventure} user={this.props.user} />
+              </View>
+            ))}
+      </Swiper>
+        </Row>
+        <Row style={styles.select} size={10}>
           <Button style={styles.selectButton}>
             <Text style={styles.selectText}>I like this one!</Text>
           </Button>
@@ -32,10 +45,21 @@ export default class HomeScreen extends Component {
 
 const styles = StyleSheet.create({
   greetingRow: {
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
+    alignItems: 'flex-end'
   },
   greetingText: {
     fontSize: 25
+  },
+  greetingText2: {
+    fontSize: 15
+  },
+  cardStyle: {
+    width: 75
+  },
+  cardHeader: {
+    fontSize: 25,
+    fontWeight: 'bold'
   },
   select: {
     justifyContent: 'space-around'
@@ -46,5 +70,21 @@ const styles = StyleSheet.create({
   selectText: {
     color: '#FFFFFF',
     fontWeight: 'bold'
-  }
+  },
+    wrapper: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    overflow: "visible"
+  },
+  swiper: {
+    overflow: "visible"
+  },
+  slide: {
+    flex: 1,
+    position: "relative",
+    width: swiperWidth - gutter,
+    alignSelf: "center",
+    justifyContent: "center"
+  },
 });
