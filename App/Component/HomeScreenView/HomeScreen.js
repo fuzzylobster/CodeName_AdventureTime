@@ -15,14 +15,17 @@ export default class HomeScreen extends Component {
   render() {
     return (
       <Grid>
-        <Row size={20}>
+        <Row size={10}>
           <HomeScreenHeader
             user={this.props.user}
             navigation={this.props.navigation}
           />
         </Row>
-        <Row size={80}>
-          <HomeScreenBody user={this.props.user} />
+        <Row size={90}>
+          <HomeScreenBody 
+          user={this.props.user}
+          adventures={this.props.adventures}
+           />
         </Row>
       </Grid>
     );
