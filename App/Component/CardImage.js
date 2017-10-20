@@ -72,11 +72,14 @@ export default class CardImage extends Component {
                 <Text>{this.props.adventure.type}</Text>
               </CardItem>
             )}
-            <CardItem style={styles.buttonContainer}>
-              <Button style={styles.selectButton}>
-                <Text style={styles.selectText}>I like this one!</Text>
-              </Button>
-            </CardItem>
+            {this.renderIf(
+              !this.props.adventure.likes,
+              <CardItem style={styles.buttonContainer}>
+                <Button style={styles.selectButton}>
+                  <Text style={styles.selectText}>I like this one!</Text>
+                </Button>
+              </CardItem>
+            )}
           </Card>
         </Content>
       </Container>
@@ -86,13 +89,13 @@ export default class CardImage extends Component {
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    justifyContent: 'space-around'
+    justifyContent: "space-around"
   },
   selectButton: {
     height: 35
   },
   selectText: {
-    color: '#FFFFFF',
-    fontWeight: 'bold'
+    color: "#FFFFFF",
+    fontWeight: "bold"
   }
 });

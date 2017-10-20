@@ -12,6 +12,7 @@ const initialState = {
     latitudeDelta: 0,
     longitudeDelta: 0
   },
+  formData:{},
   photos: [
     {
       image:
@@ -109,7 +110,7 @@ const initialState = {
       image: "https://media.timeout.com/images/100729813/image.jpg"
     }
   ],
-adventureType: [
+  adventureType: [
     {
       city: "New Orleans, LA",
       cover:
