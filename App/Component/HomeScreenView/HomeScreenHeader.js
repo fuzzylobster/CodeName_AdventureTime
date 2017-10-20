@@ -6,6 +6,8 @@ import ProfilePastAdv from "../ProfileView/ProfilePastAdv";
 import { Col, Row, Grid } from "react-native-easy-grid";
 import styles from "./../Styles/HomeScreenStyle";
 
+import jwtdecode from "jwt-decode";
+
 var STORAGE_KEY = 'jwtToken';
 
 const userLogout= async () => {
@@ -13,6 +15,15 @@ const userLogout= async () => {
     await AsyncStorage.removeItem(STORAGE_KEY);
   } catch (error) {
     console.log('AsyncStorage error: ' + error.message);
+  }
+};
+
+const getJWT = async () => {
+  try {
+    var token = await AsyncStorage.getItem(STORAGE_KEY);
+    return token;
+  } catch (error) {
+    console.log('AsyncStorage error:' + error.message);
   }
 };
 
@@ -31,6 +42,17 @@ export default class HomeScreen extends Component {
     this.props.navigation.navigate("LoginContainer");
   }
 
+  getData() {
+    getJWT().then(jwt => {
+      // Decode
+      const decoded = jwtdecode(jwt);
+      console.log(decoded);
+      // HTTP request
+      return jwt;
+    });
+    this.props.navigation.navigate("Profile");
+  }
+
   render() {
     return (
       <Grid>
@@ -40,7 +62,9 @@ export default class HomeScreen extends Component {
               <Text>You are signed in as {this.props.user.name}</Text>
             </Row>
             <Row style={styles2.buttonsRow}>
-                <Button style={styles2.buttonStyle} onPress={() => this.props.navigation.navigate("Profile")} title="Profile">
+                <Button style={styles2.buttonStyle} onPress={() => {
+                  this.getData();
+                  }} title="Profile">
                   <Text style={styles2.buttonText}>
                     View Profile
                   </Text>

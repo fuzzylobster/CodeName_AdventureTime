@@ -117,7 +117,7 @@ export default class LoginScreen extends Component {
           });
 
         if (this.props.user.name) {
-          this.props.navigation.navigate("RoutesContainer");
+          this.props.navigation.navigate("HomeScreenContainer");
         }
       })
       .catch(error => {

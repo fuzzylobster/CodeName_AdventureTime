@@ -9,10 +9,13 @@ const create = (baseURL = "http://9f7eb631.ngrok.io") => {
   });
 
   const postUserData = user => api.post("/users", user);
+  const findUserData = query => api.get(`/users?id=${query}`);
   return {
-    postUserData
+    postUserData,
+    findUserData
   };
 };
+
 
 export default {
   create
