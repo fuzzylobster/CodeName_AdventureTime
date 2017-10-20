@@ -26,7 +26,7 @@ import styles from "./../Styles/LoginScreenStyle";
 import { google, facebook, twitter, tumblr } from "react-native-simple-auth";
 import Api from "../../Services/Api";
 
-var STORAGE_KEY = 'jwtToken';
+var STORAGE_KEY = "jwtToken";
 
 export default class LoginScreen extends Component {
   api = {};
@@ -35,9 +35,9 @@ export default class LoginScreen extends Component {
     try {
       await AsyncStorage.setItem(item, selectedValue);
     } catch (error) {
-      console.log('AsyncStorage error: ' + error.message);
+      console.log("AsyncStorage error: " + error.message);
     }
-  };
+  }
 
   blank() {
     this.props.onLogin({
@@ -71,11 +71,11 @@ export default class LoginScreen extends Component {
             token: info.credentials.id_token,
             authType: "facebook"
           })
-          // .then(response => response.json())
-          // .then(responseData => {
-          //   Alert.alert("Login Success!", "Fuck ya");
-          // })
-          // .done();
+          .then(response => response.json())
+          .then(responseData => {
+            // Alert.alert("Login Success!", "Fuck ya");
+          })
+          .done();
         if (this.props.user.name) {
           this.props.navigation.navigate("HomeScreenContainer");
         }

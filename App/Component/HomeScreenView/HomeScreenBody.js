@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { Platform, StyleSheet, Text, View, Image, Dimensions } from "react-native";
+import {
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Dimensions
+} from "react-native";
 import { Button, Card, DeckSwiper, Body, CardItem } from "native-base";
 import { Col, Row, Grid } from "react-native-easy-grid";
 import Swiper from "react-native-swiper";
@@ -19,10 +26,14 @@ export default class HomeScreen extends Component {
     return (
       <Grid>
         <Row style={styles.greetingRow} size={10}>
-          <Text style={styles.greetingText}>Welcome, {this.props.user.name}!</Text>
+          <Text style={styles.greetingText}>
+            Welcome, {this.props.user.name}!
+          </Text>
         </Row>
         <Row style={styles.greetingRow} size={5}>
-          <Text style={styles.greetingText2}>What adventure should we take today?</Text>
+          <Text style={styles.greetingText2}>
+            What adventure should we take today?
+          </Text>
         </Row>
         <Row size={85}>
           <Swiper style={styles.wrapper}>
@@ -31,7 +42,17 @@ export default class HomeScreen extends Component {
                 <CardImage adventure={adventure} user={this.props.user} />
               </View>
             ))}
-      </Swiper>
+          </Swiper>
+        </Row>
+        <Row style={styles.select} size={10}>
+          <Button
+            style={styles.selectButton}
+            onPress={() => {
+              this.props.navigation.navigate("RoutesContainer");
+            }}
+          >
+            <Text style={styles.selectText}>I like this one!</Text>
+          </Button>
         </Row>
       </Grid>
     );
@@ -40,8 +61,8 @@ export default class HomeScreen extends Component {
 
 const styles = StyleSheet.create({
   greetingRow: {
-    justifyContent: 'space-around',
-    alignItems: 'flex-end'
+    justifyContent: "space-around",
+    alignItems: "flex-end"
   },
   greetingText: {
     fontSize: 25
@@ -54,19 +75,19 @@ const styles = StyleSheet.create({
   },
   cardHeader: {
     fontSize: 25,
-    fontWeight: 'bold'
+    fontWeight: "bold"
   },
   select: {
-    justifyContent: 'space-around'
+    justifyContent: "space-around"
   },
   selectButton: {
     padding: 10
   },
   selectText: {
-    color: '#FFFFFF',
-    fontWeight: 'bold'
+    color: "#FFFFFF",
+    fontWeight: "bold"
   },
-    wrapper: {
+  wrapper: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
@@ -81,5 +102,5 @@ const styles = StyleSheet.create({
     width: swiperWidth - gutter,
     alignSelf: "center",
     justifyContent: "center"
-  },
+  }
 });

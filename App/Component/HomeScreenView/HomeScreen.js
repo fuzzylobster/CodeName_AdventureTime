@@ -6,7 +6,7 @@ import { Col, Row, Grid } from "react-native-easy-grid";
 import styles from "./../Styles/HomeScreenStyle";
 
 import HomeScreenHeader from "./HomeScreenHeader";
-import HomeScreenBody from "./HomeScreenBody"
+import HomeScreenBody from "./HomeScreenBody";
 
 export default class HomeScreen extends Component {
   constructor(props) {
@@ -22,10 +22,11 @@ export default class HomeScreen extends Component {
           />
         </Row>
         <Row size={90}>
-          <HomeScreenBody 
-          user={this.props.user}
-          adventures={this.props.adventures}
-           />
+          <HomeScreenBody
+            user={this.props.user}
+            adventures={this.props.adventures}
+            navigation={this.props.navigation}
+          />
         </Row>
       </Grid>
     );

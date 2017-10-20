@@ -91,7 +91,17 @@ export default class MapViewer extends Component {
   render() {
     return (
       <MapView style={styles.map} region={this.props.location}>
-        <MapView.Marker coordinate={this.props.gps} />
+        {this.props.markers.map((marker, index) => (
+          <MapView.Marker
+            key={index}
+            coordinate={{
+              latitude: marker.lat,
+              longitude: marker.lng
+            }}
+            title={marker.title}
+            description={marker.description}
+          />
+        ))}
       </MapView>
     );
   }

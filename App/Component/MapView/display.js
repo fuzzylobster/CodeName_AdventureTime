@@ -5,6 +5,7 @@ import {
   Button,
   Text,
   PermissionsAndroid,
+  Platform,
   Dimensions
 } from "react-native";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
@@ -30,6 +31,77 @@ export default class display extends Component {
     };
   }
 
+  watchID = null;
+
+  componentWillMount() {
+    if (Platform.OS === "android") {
+      PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
+      ).then(granted => {
+        if (granted) {
+          this.watchLocation1();
+          this.watchLocation2();
+        }
+      });
+    } else {
+      this.watchLocation();
+      this.watchLocation2();
+    }
+  }
+
+  watchLocation1() {
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        var lat = parseFloat(position.coords.latitude);
+        var long = parseFloat(position.coords.longitude);
+
+        var initialRegion = {
+          latitude: lat,
+          longitude: long,
+          latitudeDelta: LATITUDE_DELTA,
+          longitudeDelta: LONGITUDE_DELTA
+        };
+        this.props.set_location(initialRegion);
+        this.props.set_gps_marker(initialRegion);
+      },
+      error => this.watchLocation1(),
+      {
+        enableHighAccuracy: true,
+        timeout: 20000,
+        maximumAge: 1000,
+        distanceFilter: 0.0000000000000001
+      }
+    );
+  }
+
+  watchLocation2() {
+    this.watchID = navigator.geolocation.watchPosition(
+      position => {
+        var lat = parseFloat(position.coords.latitude);
+        var long = parseFloat(position.coords.longitude);
+
+        var lastRegion = {
+          latitude: lat,
+          longitude: long,
+          latitudeDelta: LATITUDE_DELTA,
+          longitudeDelta: LONGITUDE_DELTA
+        };
+        this.props.set_location(lastRegion);
+        -this.props.set_gps_marker(lastRegion);
+      },
+      error => this.watchLocation2(),
+      {
+        enableHighAccuracy: true,
+        timeout: 20000,
+        maximumAge: 1000,
+        distanceFilter: 0.0000000000000001
+      }
+    );
+  }
+  componentWillUnmount() {
+    navigator.geolocation.clearWatch(this.watchID);
+  }
+
   componentDidMount() {
     // find your origin and destination point coordinates and pass it to our method.
     // I am using Bursa,TR -> Istanbul,TR for this example
@@ -39,7 +111,7 @@ export default class display extends Component {
     );
   }
 
-  async getDirections(startLoc, destinationLoc, waypoint) {
+  async getDirections(startLoc, destinationLoc) {
     try {
       let resp = await fetch(
         `https://maps.googleapis.com/maps/api/directions/json?origin=${startLoc}&destination=${destinationLoc}`
@@ -70,7 +142,7 @@ export default class display extends Component {
 
     return (
       <View style={styles.container}>
-        <MapView style={styles.map} region={initialRegion}>
+        <MapView style={styles.map} region={this.props.location}>
           {this.props.markers.map((marker, index) => (
             <MapView.Marker
               key={index}
