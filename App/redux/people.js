@@ -12,6 +12,7 @@ const initialState = {
     latitudeDelta: 0,
     longitudeDelta: 0
   },
+  formData:{},
   photos: [
     {
       image:

@@ -58,7 +58,7 @@ export default class ProfileView extends Component {
             </Text>
           </View>
         </Modal>
-        <Row size={43}>
+        <Row size={42}>
           <View style={styles.container}>
             <ProfileHeader
               user={this.props.user}
@@ -76,7 +76,7 @@ export default class ProfileView extends Component {
             />
           </View>
         </Row>
-        <Row size={42}>
+        <Row size={43}>
           <ProfilePastAdv
             user={this.props.user}
             adventures={this.props.adventures}

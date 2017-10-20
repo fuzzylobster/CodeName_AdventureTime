@@ -12,7 +12,6 @@ export default StyleSheet.create({
     justifyContent: "center",
     backgroundColor: "#000000",
     overflow: "visible"
-    //width: swiperWidth
   },
   swiper: {
     overflow: "visible"
@@ -20,27 +19,12 @@ export default StyleSheet.create({
   slide: {
     flex: 1,
     position: "relative",
-    width: swiperWidth - gutter,
-    backgroundColor: "#9DD6EB",
-    alignSelf: "center",
+    width: windowWidth,
+    // backgroundColor: "#9DD6EB",
+    alignSelf: "stretch",
     justifyContent: "center"
   },
-  slide2: {
-    flex: 1,
-    position: "relative",
-    width: swiperWidth - gutter,
-    backgroundColor: "#97CAE5",
-    alignSelf: "center",
-    justifyContent: "center"
-  },
-  slide3: {
-    flex: 1,
-    position: "relative",
-    width: swiperWidth - gutter,
-    backgroundColor: "#92BBD9",
-    alignSelf: "center",
-    justifyContent: "center"
-  },
+
   text: {
     color: "#fff",
     fontSize: 30,

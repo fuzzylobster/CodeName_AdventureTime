@@ -32,6 +32,15 @@ export default class RouteViewer extends Component {
     };
     return (
       <Grid>
+        <Row size={60}>
+          <MapViewer
+            setLocation={this.props.set_location}
+            setGps={this.props.set_gps_marker}
+            gps={this.props.gps}
+            loc={this.props.loc}
+            markers={this.props.markers}
+          />
+        </Row>
         <Row size={40}>
           <PlaceSearch
             setMarker={this.props.add_marker}
@@ -41,15 +50,6 @@ export default class RouteViewer extends Component {
             setGps={this.props.set_gps_marker}
             gps={this.props.gps}
             loc={this.props.loc}
-          />
-        </Row>
-        <Row size={60}>
-          <MapViewer
-            setLocation={this.props.set_location}
-            setGps={this.props.set_gps_marker}
-            gps={this.props.gps}
-            loc={this.props.loc}
-            markers={this.props.markers}
           />
         </Row>
       </Grid>

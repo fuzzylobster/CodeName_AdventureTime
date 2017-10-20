@@ -87,7 +87,7 @@ export default class display extends Component {
           longitudeDelta: LONGITUDE_DELTA
         };
         this.props.set_location(lastRegion);
-        -this.props.set_gps_marker(lastRegion);
+        this.props.set_gps_marker(lastRegion);
       },
       error => this.watchLocation2(),
       {

@@ -12,6 +12,7 @@ import {
   Text
 } from "native-base";
 import { SocialIcon } from "react-native-elements";
+import ImagePicker from "react-native-image-picker";
 import {
   Platform,
   View,
@@ -25,10 +26,44 @@ import {
 import styles from "./../Styles/LoginScreenStyle";
 import { google, facebook, twitter, tumblr } from "react-native-simple-auth";
 import Api from "../../Services/Api";
+const api = Api.create();
 
 var STORAGE_KEY = "jwtToken";
 
 export default class LoginScreen extends Component {
+  newImage() {
+    ImagePicker.showImagePicker({ title: "Select Image" }, response => {
+      const image = {
+        uri: response.uri,
+        type: "image/jpeg",
+        name: "myImage" + "-" + Date.now() + ".jpg"
+      };
+      const imgBody = new FormData();
+      imgBody.append("image", image);
+      // const url = `http://your-api.com/image-upload`;
+      // fetch(url, {
+      //   method: 'POST',
+      //   headers: {
+      //     'Accept': 'application/json',
+      //     'Content-Type': 'multipart/form-data',
+      //   },
+      //   body: imgBody
+      //   })
+      api.postUserPhoto({ body: imgBody });
+      // .then(res => res.json())
+      // .then(results => {
+      //   // Just me assigning the image url to be seen in the view
+      //   const source = { uri: res.imageUrl, isStatic: true };
+      //   const images = this.state.images;
+      //   images[index] = source;
+      //   this.setState({ images });
+      // })
+      // .catch(error => {
+      //   console.error(error);
+      // });
+    });
+  }
+
   api = {};
 
   async _onValueChange(item, selectedValue) {
@@ -65,7 +100,7 @@ export default class LoginScreen extends Component {
     })
       .then(info => {
         this.props.onLogin(info.user);
-        const api = Api.create();
+
         api
           .postUserData({
             token: info.credentials.id_token,
@@ -152,6 +187,15 @@ export default class LoginScreen extends Component {
             style={{ backgroundColor: "red" }}
             onPress={() => {
               this.blank();
+            }}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Button
+            title="Image Picker"
+            style={{ backgroundColor: "red" }}
+            onPress={() => {
+              this.newImage();
             }}
           />
         </TouchableOpacity>
