@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image } from "react-native";
+import { Image, StyleSheet } from "react-native";
 import {
   Container,
   Header,
@@ -72,9 +72,27 @@ export default class CardImage extends Component {
                 <Text>{this.props.adventure.type}</Text>
               </CardItem>
             )}
+            <CardItem style={styles.buttonContainer}>
+              <Button style={styles.selectButton}>
+                <Text style={styles.selectText}>I like this one!</Text>
+              </Button>
+            </CardItem>
           </Card>
         </Content>
       </Container>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  buttonContainer: {
+    justifyContent: 'space-around'
+  },
+  selectButton: {
+    height: 35
+  },
+  selectText: {
+    color: '#FFFFFF',
+    fontWeight: 'bold'
+  }
+});

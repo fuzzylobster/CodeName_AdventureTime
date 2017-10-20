@@ -24,7 +24,7 @@ export default class HomeScreen extends Component {
         <Row style={styles.greetingRow} size={5}>
           <Text style={styles.greetingText2}>What adventure should we take today?</Text>
         </Row>
-        <Row size={70}>
+        <Row size={85}>
           <Swiper style={styles.wrapper}>
             {this.props.adventures.map((adventure, i) => (
               <View style={styles.slide} key={i}>
@@ -32,11 +32,6 @@ export default class HomeScreen extends Component {
               </View>
             ))}
       </Swiper>
-        </Row>
-        <Row style={styles.select} size={10}>
-          <Button style={styles.selectButton}>
-            <Text style={styles.selectText}>I like this one!</Text>
-          </Button>
         </Row>
       </Grid>
     );

@@ -111,25 +111,25 @@ const initialState = {
   ],
 adventureType: [
     {
-      city: "New Orleans, La",
+      city: "New Orleans, LA",
       cover:
         "http://cdn1.theodysseyonline.com/files/2015/11/21/635837430566856627-1324495185_tndkklvnxeoprzcusexl.jpg",
-      name: "Plot Your Own Path",
-      type: "Choose Your Points of interest and Events."
+      name: "Plot your own path",
+      type: "Choose your points of interest and events"
     },
     {
-      city: "New Orleans, La",
+      city: "New Orleans, LA",
       cover:
         "https://www.orlandoinformer.com/wp-content/uploads/2011/08/port-of-entry-islands-of-adventure-725-oi.jpg",
       name: "Follow my footsteps",
-      type: "Follow a Path Created by a fellow user"
+      type: "Follow a path created by a fellow user"
     },
     {
-      city: "New Orleans, La",
+      city: "New Orleans, LA",
       cover:
         "https://www.orlandoinformer.com/wp-content/uploads/2011/08/port-of-entry-islands-of-adventure-725-oi.jpg",
-      name: "LeI think Ill start here.",
-      type: "Choose your starting point and let us handle the rest."
+      name: "I think I'll start here",
+      type: "Choose your starting point and let us handle the rest"
     }
   ]
 };
