@@ -7,6 +7,7 @@ import { Col, Row, Grid } from "react-native-easy-grid";
 import styles from "./../Styles/HomeScreenStyle";
 
 import jwtdecode from "jwt-decode";
+import Api from "../../Services/Api";
 
 var STORAGE_KEY = 'jwtToken';
 
@@ -46,9 +47,10 @@ export default class HomeScreen extends Component {
     getJWT().then(jwt => {
       // Decode
       const decoded = jwtdecode(jwt);
-      console.log(decoded);
       // HTTP request
-      return jwt;
+      const api = Api.create();
+      api.findUserData(decoded.userID);
+      return decoded.userID;
     });
     this.props.navigation.navigate("Profile");
   }
