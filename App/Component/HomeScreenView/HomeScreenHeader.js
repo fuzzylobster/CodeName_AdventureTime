@@ -8,16 +8,28 @@ import styles from "./../Styles/HomeScreenStyle";
 
 var STORAGE_KEY = 'jwtToken';
 
-export default class HomeScreen extends Component {
-  constructor(props) {
-    super(props);
+const userLogout= async () => {
+  try {
+    await AsyncStorage.removeItem(STORAGE_KEY);
+  } catch (error) {
+    console.log('AsyncStorage error: ' + error.message);
   }
+};
+
+export default class HomeScreen extends Component {
+  // constructor(props) {
+  //   super(props);
+  // }
 
   async _showToken() {
     var TOKEN = await AsyncStorage.getItem(STORAGE_KEY);
     console.log(TOKEN);
   }
 
+  logout() {
+    userLogout();
+    this.props.navigation.navigate("LoginContainer");
+  }
 
   render() {
     return (
@@ -33,7 +45,9 @@ export default class HomeScreen extends Component {
                     View Profile
                   </Text>
                 </Button>
-                <Button style={styles2.buttonStyle}>
+                <Button style={styles2.buttonStyle} onPress={() => {
+                  this.logout();
+                  }}>
                   <Text style={styles2.buttonText}>
                     Log Out
                   </Text>
