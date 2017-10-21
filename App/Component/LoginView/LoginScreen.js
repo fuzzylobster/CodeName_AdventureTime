@@ -29,8 +29,16 @@ import Api from "../../Services/Api";
 const api = Api.create();
 
 var STORAGE_KEY = "jwtToken";
+var image1;
 
 export default class LoginScreen extends Component {
+  renderIf(condition, content) {
+    if (condition) {
+      return content;
+    } else {
+      return null;
+    }
+  }
   newImage() {
     ImagePicker.showImagePicker({ title: "Select Image" }, response => {
       const image = {
@@ -40,27 +48,16 @@ export default class LoginScreen extends Component {
       };
       const imgBody = new FormData();
       imgBody.append("image", image);
-      // const url = `http://your-api.com/image-upload`;
-      // fetch(url, {
-      //   method: 'POST',
-      //   headers: {
-      //     'Accept': 'application/json',
-      //     'Content-Type': 'multipart/form-data',
-      //   },
-      //   body: imgBody
-      //   })
-      api.postUserPhoto({ body: imgBody });
-      // .then(res => res.json())
-      // .then(results => {
-      //   // Just me assigning the image url to be seen in the view
-      //   const source = { uri: res.imageUrl, isStatic: true };
-      //   const images = this.state.images;
-      //   images[index] = source;
-      //   this.setState({ images });
-      // })
-      // .catch(error => {
-      //   console.error(error);
-      // });
+
+      api
+        .postUserPhoto(imgBody)
+        .then(res => {
+          const source = { uri: res.imageUrl, isStatic: true };
+          console.log(res);
+        })
+        .catch(error => {
+          console.error(error);
+        });
     });
   }
 
@@ -199,6 +196,16 @@ export default class LoginScreen extends Component {
             }}
           />
         </TouchableOpacity>
+
+        {this.renderIf(
+          !this.state.image1,
+
+          <Text>Didn't worl</Text>
+        )}
+        {this.renderIf(
+          this.state.image1,
+          <Text>{JSON.stringify(this.state.image1)}</Text>
+        )}
       </View>
     );
   }
