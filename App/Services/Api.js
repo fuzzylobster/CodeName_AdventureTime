@@ -1,5 +1,5 @@
 import apisauce from "apisauce";
-const create = (baseURL = "http://9f7eb631.ngrok.io") => {
+const create = (baseURL = "http://270a5296.ngrok.io") => {
   const api = apisauce.create({
     baseURL,
     headers: {
@@ -21,12 +21,10 @@ const create = (baseURL = "http://9f7eb631.ngrok.io") => {
     headers: {
       Accept: "application/json",
       "Content-Type": "multipart/form-data"
-    },
-    timeout: 10000
+    }
   });
 
-  const postUserPhoto = photo => apiUpload.post("/photos", photo);
-
+  const postUserPhoto = imgBody => apiUpload.post("/image-upload", imgBody);
   const postUserData = user => api.post("/users", user);
   const findUserData = query =>
     api.get(`/users?googleId=${query}`).then(response => {
@@ -34,7 +32,8 @@ const create = (baseURL = "http://9f7eb631.ngrok.io") => {
     });
   return {
     postUserData,
-    findUserData
+    findUserData,
+    postUserPhoto
   };
 };
 
