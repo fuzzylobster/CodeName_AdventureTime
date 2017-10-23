@@ -17,6 +17,12 @@ import PlaceSearch from "./PlaceSearch";
 import styles from "./../Styles/HomeScreenStyle";
 
 export default class RouteViewer extends Component {
+  state = {
+    tempAdventure: {
+      name: "tempAdventure",
+      markerLocations: []
+    }
+  };
   render() {
     const { navigate } = this.props.navigation;
     const change = {
@@ -38,18 +44,36 @@ export default class RouteViewer extends Component {
             setGps={this.props.set_gps_marker}
             gps={this.props.gps}
             loc={this.props.loc}
-            markers={this.props.markers}
+            markers={this.state.tempAdventure.markerLocations}
           />
         </Row>
         <Row size={40}>
           <PlaceSearch
-            setMarker={this.props.add_marker}
+            setMarker={newMarker => {
+              this.setState({
+                tempAdventure: {
+                  name: "tempAdv",
+                  markerLocations: this.state.tempAdventure.markerLocations.concat(
+                    newMarker
+                  )
+                }
+              });
+            }}
             markers={this.props.markers}
+            setAdventure={() => {
+              this.props.set_Adventure(
+                this.state.tempAdventure,
+                true,
+                this.props.token
+              );
+            }}
+            tempAdventure={this.state.tempAdventure}
+            setWaypoint={() => {
+              this.props.set_waypoint(
+                this.state.tempAdventure.markerLocations[0]
+              );
+            }}
             navigation={this.props.navigation}
-            setLocation={this.props.set_location}
-            setGps={this.props.set_gps_marker}
-            gps={this.props.gps}
-            loc={this.props.loc}
           />
         </Row>
       </Grid>
@@ -61,7 +85,12 @@ export default class RouteViewer extends Component {
 // setMarker={this.props.add_marker}
 // markers={this.props.markers}
 // navigation={this.props.navigation}
+// setLocation={this.props.set_location}
+// setGps={this.props.set_gps_marker}
+// gps={this.props.gps}
+// loc={this.props.loc}
 // />
+//
 
 // <MapViewer
 // setLocation={this.props.set_location}
