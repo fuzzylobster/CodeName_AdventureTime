@@ -34,26 +34,21 @@ const mapDispatchToProps = dispatch => {
       dispatch(Current_adventure(adventure));
       if (toBeSaved) {
         const api = Api.create();
-        console.log(id)
-        api
-          .findUserData()
-          .then(Response => {
-            adventure = {
-              userId: id,
-              name: adventure.name,
-              locs: adventure.markerLocations
-            };
-          })
-          .then(
-            api.saveRoute(adventure).then(
-              success => {
-                console.log(success);
-              },
-              error => {
-                console.log(error);
-              }
-            )
-          );
+        console.log(id);
+
+        adventure = {
+          userId: id,
+          name: adventure.name,
+          locs: adventure.markerLocations
+        };
+        api.saveRoute(adventure).then(
+          success => {
+            console.log(success);
+          },
+          error => {
+            console.log(error);
+          }
+        );
       }
     },
 

@@ -56,8 +56,11 @@ export default class HomeScreen extends Component {
       const decoded = jwtdecode(jwt);
       // HTTP request
       const api = Api.create();
-      api.findUserData(decoded.userID);
-      this.props.set_token(decoded.userID);
+      api.findUserData(decoded.userID).then(Response => {
+        this.props.set_Token(Response.data[0].id);
+        console.log(Response);
+      });
+
       return decoded.userID;
     });
     this.props.navigation.navigate("Profile");

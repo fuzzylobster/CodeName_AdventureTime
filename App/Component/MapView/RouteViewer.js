@@ -61,7 +61,11 @@ export default class RouteViewer extends Component {
             }}
             markers={this.props.markers}
             setAdventure={() => {
-              this.props.set_Adventure(this.state.tempAdventure, true, this.props.tokenthis.props.tokenthis.props.tokenthis.props.token);
+              this.props.set_Adventure(
+                this.state.tempAdventure,
+                true,
+                this.props.token
+              );
             }}
             tempAdventure={this.state.tempAdventure}
             setWaypoint={() => {
@@ -70,7 +74,6 @@ export default class RouteViewer extends Component {
               );
             }}
             navigation={this.props.navigation}
-            token={this.props.token}
           />
         </Row>
       </Grid>

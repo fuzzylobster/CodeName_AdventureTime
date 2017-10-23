@@ -42,7 +42,7 @@ export function Marker_locations(mark) {
   };
 }
 
-export function Token(Token) {
+export function Token(token) {
   return {
     type: "SET_Token",
     token

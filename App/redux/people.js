@@ -140,7 +140,7 @@ const initialState = {
       type: "Choose your starting point and let us handle the rest"
     }
   ],
-  token: ''
+  token: ""
 };
 
 export default function peopleReducer(state = initialState, action) {
@@ -177,7 +177,7 @@ export default function peopleReducer(state = initialState, action) {
       });
     case "SET_Token":
       return Object.assign({}, state, {
-        gps: action.token
+        token: action.token
       });
     default:
       return state;
