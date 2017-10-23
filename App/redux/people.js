@@ -12,7 +12,7 @@ const initialState = {
     latitudeDelta: 0,
     longitudeDelta: 0
   },
-  formData:{},
+  formData: {},
   photos: [
     {
       image:
@@ -31,14 +31,21 @@ const initialState = {
     }
   ],
   adventure: {
+    name: "aaron",
     markerLocations: [
       {
-        lat: 40.1884979,
-        lng: 29.061018
+        name: "test route",
+        location: {
+          lat: 40.1884979,
+          lng: 29.061018
+        }
       },
       {
-        lat: 41.0082,
-        lng: 28.9784
+        name: "place",
+        location: {
+          lat: 41.0082,
+          lng: 28.9784
+        }
       }
     ]
   },
@@ -132,7 +139,8 @@ const initialState = {
       name: "I think I'll start here",
       type: "Choose your starting point and let us handle the rest"
     }
-  ]
+  ],
+  token: ''
 };
 
 export default function peopleReducer(state = initialState, action) {
@@ -166,6 +174,10 @@ export default function peopleReducer(state = initialState, action) {
         adventure: {
           markerLocations: state.adventure.markerLocations.concat(action.mark)
         }
+      });
+    case "SET_Token":
+      return Object.assign({}, state, {
+        gps: action.token
       });
     default:
       return state;
