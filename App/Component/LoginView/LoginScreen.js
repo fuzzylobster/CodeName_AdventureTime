@@ -32,6 +32,9 @@ var STORAGE_KEY = "jwtToken";
 var image1;
 
 export default class LoginScreen extends Component {
+  state = {
+    image1: null
+  };
   renderIf(condition, content) {
     if (condition) {
       return content;
@@ -87,7 +90,6 @@ export default class LoginScreen extends Component {
         }
       }
     });
-
     this.props.navigation.navigate("HomeScreenContainer");
   }
   fbSignIn() {
@@ -196,17 +198,17 @@ export default class LoginScreen extends Component {
             }}
           />
         </TouchableOpacity>
-
-        {this.renderIf(
-          !this.state.image1,
-
-          <Text>Didn't worl</Text>
-        )}
-        {this.renderIf(
-          this.state.image1,
-          <Text>{JSON.stringify(this.state.image1)}</Text>
-        )}
       </View>
     );
   }
 }
+
+// {this.renderIf(
+//   !this.state.image1,
+
+//   <Text>Didn't worl</Text>
+// )}
+// {this.renderIf(
+//   this.state.image1,
+//   <Text>{JSON.stringify(this.state.image1)}</Text>
+// )}

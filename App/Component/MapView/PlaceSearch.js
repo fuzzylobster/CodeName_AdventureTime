@@ -69,9 +69,17 @@ export default class PlaceSearch extends Component {
             )}
             renderRightButton={() => (
               <Button
-                title="View Marker"
+                title="Let's go!"
                 onPress={() => {
-                  this.props.navigation.navigate("testContainer");
+                  if (!this.props.tempAdventure.markerLocations.length) {
+                    alert("You haven't made any stops yet!");
+                  } else {
+                    this.props.setAdventure();
+                    {
+                      /* this.props.setWaypoint(); */
+                    }
+                    this.props.navigation.navigate("testContainer");
+                  }
                 }}
               />
             )}

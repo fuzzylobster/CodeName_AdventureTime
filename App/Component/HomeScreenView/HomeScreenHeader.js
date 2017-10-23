@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { Platform, StyleSheet, Text, View, Image, AsyncStorage } from "react-native";
+import {
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  AsyncStorage
+} from "react-native";
 import { Button } from "native-base";
 import FooterMenu from "../Footer";
 import ProfilePastAdv from "../ProfileView/ProfilePastAdv";
@@ -9,13 +16,13 @@ import styles from "./../Styles/HomeScreenStyle";
 import jwtdecode from "jwt-decode";
 import Api from "../../Services/Api";
 
-var STORAGE_KEY = 'jwtToken';
+var STORAGE_KEY = "jwtToken";
 
-const userLogout= async () => {
+const userLogout = async () => {
   try {
     await AsyncStorage.removeItem(STORAGE_KEY);
   } catch (error) {
-    console.log('AsyncStorage error: ' + error.message);
+    console.log("AsyncStorage error: " + error.message);
   }
 };
 
@@ -24,7 +31,7 @@ const getJWT = async () => {
     var token = await AsyncStorage.getItem(STORAGE_KEY);
     return token;
   } catch (error) {
-    console.log('AsyncStorage error:' + error.message);
+    console.log("AsyncStorage error:" + error.message);
   }
 };
 
@@ -50,6 +57,7 @@ export default class HomeScreen extends Component {
       // HTTP request
       const api = Api.create();
       api.findUserData(decoded.userID);
+      this.props.set_token(decoded.userID);
       return decoded.userID;
     });
     this.props.navigation.navigate("Profile");
@@ -64,35 +72,42 @@ export default class HomeScreen extends Component {
               <Text>You are signed in as {this.props.user.name}</Text>
             </Row>
             <Row style={styles2.buttonsRow}>
-                <Button style={styles2.buttonStyle} onPress={() => {
+              <Button
+                style={styles2.buttonStyle}
+                onPress={() => {
                   this.getData();
-                  }} title="Profile">
-                  <Text style={styles2.buttonText}>
-                    View Profile
-                  </Text>
-                </Button>
-                <Button style={styles2.buttonStyle} onPress={() => {
+                }}
+                title="Profile"
+              >
+                <Text style={styles2.buttonText}>View Profile</Text>
+              </Button>
+              <Button
+                style={styles2.buttonStyle}
+                onPress={() => {
                   this.logout();
-                  }}>
-                  <Text style={styles2.buttonText}>
-                    Log Out
-                  </Text>
-                </Button>
-                <Button style={styles2.buttonStyle} onPress={this._showToken} title="Experiment">
-                  <Text style={styles2.buttonText}>
-                    Experiment
-                  </Text>
-                </Button>
+                }}
+              >
+                <Text style={styles2.buttonText}>Log Out</Text>
+              </Button>
+              <Button
+                style={styles2.buttonStyle}
+                onPress={this._showToken}
+                title="Experiment"
+              >
+                <Text style={styles2.buttonText}>Experiment</Text>
+              </Button>
             </Row>
           </Col>
           <Col size={25} style={styles2.imageCol}>
             <View style={styles.profilePicWrap}>
-              <Image style={styles.profilePic} source={{ uri: this.props.user.picture.data.url }} />
+              <Image
+                style={styles.profilePic}
+                source={{ uri: this.props.user.picture.data.url }}
+              />
             </View>
           </Col>
         </Row>
       </Grid>
-
 
       // <Grid>
       //   <Row>
@@ -141,16 +156,16 @@ export default class HomeScreen extends Component {
 
 const styles2 = StyleSheet.create({
   signedIn: {
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: "center",
+    alignItems: "center"
   },
 
   imageCol: {
-    alignItems: 'flex-end'
+    alignItems: "flex-end"
   },
 
   buttonsRow: {
-    justifyContent: 'center'
+    justifyContent: "center"
   },
 
   buttonStyle: {
@@ -162,7 +177,7 @@ const styles2 = StyleSheet.create({
   },
 
   buttonText: {
-  color: '#FFFFFF',
-  fontWeight: 'bold'
- }
+    color: "#FFFFFF",
+    fontWeight: "bold"
+  }
 });

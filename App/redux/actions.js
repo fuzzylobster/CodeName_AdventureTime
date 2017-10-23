@@ -10,7 +10,7 @@ export function Select_user(User) {
 export function Current_adventure(adv) {
   return {
     type: "SET_ADVENTURE",
-    Adv
+    adv
   };
 }
 
@@ -39,5 +39,12 @@ export function Marker_locations(mark) {
   return {
     type: "SET_Markers",
     mark
+  };
+}
+
+export function Token(Token) {
+  return {
+    type: "SET_Token",
+    token
   };
 }

@@ -7,6 +7,7 @@ import {
   Marker_locations
 } from "../redux/actions";
 import RouteViewer from "../Component/MapView/RouteViewer";
+import Api from "../Services/Api";
 
 const mapStateToProps = state => {
   return {
@@ -14,7 +15,8 @@ const mapStateToProps = state => {
     loc: state.people.location,
     waypoint: state.people.CurrentStop,
     gps: state.people.gps,
-    markers: state.people.adventure.markerLocations
+    markers: state.people.adventure.markerLocations,
+    token: state.people.token
   };
 };
 
@@ -28,8 +30,31 @@ const mapDispatchToProps = dispatch => {
       dispatch(Current_Stop(loc));
     },
 
-    set_Adventure: loc => {
-      dispatch(Current_adventure(loc));
+    set_Adventure: (adventure, toBeSaved, id) => {
+      dispatch(Current_adventure(adventure));
+      if (toBeSaved) {
+        const api = Api.create();
+        console.log(id)
+        api
+          .findUserData()
+          .then(Response => {
+            adventure = {
+              userId: id,
+              name: adventure.name,
+              locs: adventure.markerLocations
+            };
+          })
+          .then(
+            api.saveRoute(adventure).then(
+              success => {
+                console.log(success);
+              },
+              error => {
+                console.log(error);
+              }
+            )
+          );
+      }
     },
 
     set_gps_marker: gps => {
