@@ -42,6 +42,14 @@ export function Marker_locations(mark) {
   };
 }
 
+
+export function Add_Badge(badge) {
+  return {
+    type: "ADD_BADGE",
+    badge
+  };
+}
+
 export function Token(token) {
   return {
     type: "SET_Token",

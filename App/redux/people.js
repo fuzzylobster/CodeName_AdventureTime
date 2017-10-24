@@ -75,7 +75,14 @@ const initialState = {
       badge: []
     }
   ],
-  CurrentStop: {},
+   AdvCounter: 0,
+  CurrentStopIndex: 0,
+  CurrentStop: {
+    name: '729 Louque Pl',
+    location: {
+      lat: 29.9891516,
+      lng: -90.10870279999999, }
+  },
   stockPhotos: [
     {
       image:
@@ -155,11 +162,14 @@ export default function peopleReducer(state = initialState, action) {
       });
     case "SET_ADVENTURE":
       return Object.assign({}, state, {
-        adventure: action.adv
+        adventure: action.adv,
+        CurrentStopIndex: 0,
+        CurrentStop: action.adv.markerLocations[0]
       });
     case "SET_CURRENTSTOP":
       return Object.assign({}, state, {
-        CurrentStop: action.stop
+        CurrentStop: action.stop,
+                CurrentStopIndex: state.CurrentStopIndex + 1
       });
     case "Add_Photos":
       return Object.assign({}, state, {
@@ -178,6 +188,12 @@ export default function peopleReducer(state = initialState, action) {
     case "SET_Token":
       return Object.assign({}, state, {
         token: action.token
+      });
+      case "ADD_BADGE":
+      return Object.assign({}, state, {
+        badges: state.badges.concat(
+          action.badge
+        )
       });
     default:
       return state;
