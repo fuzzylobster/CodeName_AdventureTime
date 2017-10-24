@@ -189,11 +189,13 @@ export default function peopleReducer(state = initialState, action) {
       return Object.assign({}, state, {
         token: action.token
       });
-      case "ADD_BADGE":
+    case "SET_Adv_Counter":
       return Object.assign({}, state, {
-        badges: state.badges.concat(
-          action.badge
-        )
+        AdvCounter: action.advCounter
+      });
+    case "SET_Badges":
+      return Object.assign({}, state, {
+        badges: action.badges
       });
     default:
       return state;

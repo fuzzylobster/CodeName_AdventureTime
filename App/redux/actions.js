@@ -56,3 +56,17 @@ export function Token(token) {
     token
   };
 }
+
+export function Set_Adv_Counter(advCounter) {
+  return {
+    type: "SET_Adv_Counter",
+    advCounter
+  };
+}
+
+export function Set_Badges(badges) {
+  return {
+    type: "SET_Badges",
+    badges
+  };
+}
