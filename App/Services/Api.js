@@ -25,7 +25,7 @@ const create = (baseURL = "http://270a5296.ngrok.io") => {
   });
 
  const postUserPhoto = imgBody => apiUpload.post("/image-upload", imgBody);
-  const postUserData = user => api.post("/authentication", user);
+  const postUserData = user => api.post("/users", user);
   const findUserData = query =>
     api.get(`/users?googleId=${query}`).then(response => {
       console.log(response);

@@ -62,7 +62,7 @@ export default class HomeScreen extends Component {
     //   const api = Api.create();
     //   api.findUserData(decoded.userID).then(Response => {
     //     this.props.set_Token(Response.data[0].id);
-    //     console.log(Response);
+    //     console.log(Response.data[0]);
     //   });
 
     //   return decoded.userID;

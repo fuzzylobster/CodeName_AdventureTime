@@ -26,18 +26,21 @@ export default class HomeScreen extends Component {
   constructor(props) {
     super(props);
   }
-  componentWillMount() {
+  componentDidMount() {
     getJWT().then(jwt => {
       // Decode
       const decoded = jwtdecode(jwt);
+      console.log(decoded);
       // HTTP request
       const api = Api.create();
       api.findUserData(decoded.userID).then(Response => {
+        console.log('RESPONSE', Response);
         this.props.set_Token(Response.data[0].id);
         this.props.set_Adv_Counter(Response.data[0].advCounter);
         this.props.set_Badges(Response.data[0].badges);
         //Response.data[0].id
-        console.log(Response);
+      }).catch(err => {
+        console.error('Error:', err);
       });
 
       return decoded.userID;
