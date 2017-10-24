@@ -132,29 +132,50 @@ export default class display extends Component {
     }
   }
 
-  render() {
-    let initialRegion = {
-      latitude: 30,
-      longitude: -90,
+ render() {
+    const initialRegion = {
+      latitude: this.props.loc.latitude,
+      longitude: this.props.loc.longitude,
       latitudeDelta: 0.0922,
-      longitudeDelta: 0.0421
+      longitudeDelta: LONGITUDE_DELTA
     };
-
     return (
       <View style={styles.container}>
-        <MapView style={styles.map} region={this.props.location}>
-          {this.props.markers.map((marker, index) => (
+        <MapView style={styles.map} initialRegion={initialRegion}>
             <MapView.Marker
-              key={index}
               coordinate={{
-                latitude: marker.lat,
-                longitude: marker.lng
+                latitude: this.props.loc.latitude,
+                longitude: this.props.loc.longitude
               }}
-              title={marker.title}
-              description={marker.description}
+              title={"This is us"}
+              
             />
-          ))}
-
+          
+           <MapView.Marker coordinate={{
+             latitude: this.props.waypoint.location.lat,
+             longitude: this.props.waypoint.location.lng
+             
+             }} >
+            <MapView.Callout
+              title="anything"
+              onPress={() => {
+                   
+                  let badgeName = this.props.waypoint.name
+                  this.props.navigation.navigate('ARContainer', {
+                    refresh: () => {
+                      this.setState({coords: []})
+                      this.getDirections(
+                        `"${this.props.loc.latitude}, ${this.props.loc.longitude}"`,
+                        `"${this.props.waypoint.location.lat}, ${this.props.waypoint.location.lng}"`);
+                        this.render();
+                    }
+                  })
+                
+              }
+              }
+            /> 
+            
+          </MapView.Marker>
           <MapView.Polyline
             coordinates={this.state.coords}
             strokeWidth={2}

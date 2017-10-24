@@ -21,21 +21,21 @@ export default class ProfileBadges extends Component {
     return numCities.length;
   }
   badges() {
-    let badges = [];
-    for (var i = 0; i < this.props.adventures; i++) {
-      for (var j = 0; j < this.props.adventures[i].badges; j++) {
-        if (numCities.indexOf(this.props.adventures[i].badges[j]) === -1) {
-          numCities.push(this.props.adventures[i].badges[j]);
-        }
-      }
-    }
+    let badges = this.props.badges;
+    // for (var i = 0; i < this.props.adventures; i++) {
+    //   for (var j = 0; j < this.props.adventures[i].badges; j++) {
+    //     if (numCities.indexOf(this.props.adventures[i].badges[j]) === -1) {
+    //       numCities.push(this.props.adventures[i].badges[j]);
+    //     }
+    //   }
+    // }
     return badges.length;
   }
   render() {
     return (
       <View style={[styles.bar, styles.badgeContainer]}>
         <View style={[styles.barItem, styles.barSeparator]}>
-          <Text style={styles.barTop}>{this.props.adventures.length}</Text>
+          <Text style={styles.barTop}>{this.props.advCounter}</Text>
           {/** Adventures completed*/}
           <Text style={styles.barBottom}>Adventures completed</Text>
         </View>

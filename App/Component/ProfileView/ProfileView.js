@@ -64,7 +64,8 @@ export default class ProfileView extends Component {
               user={this.props.user}
               background={this.props.background}
             />
-            <ProfileBadges adventures={this.props.adventures} />
+            <ProfileBadges advCounter={this.props.advCounter} 
+            badges={this.props.badges} />
           </View>
         </Row>
         <Row size={15}>

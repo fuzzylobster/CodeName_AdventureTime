@@ -98,7 +98,9 @@ export default class HomeScreen extends Component {
               </Button>
               <Button
                 style={styles2.buttonStyle}
-                onPress={this._showToken}
+            onPress={() => {
+              this.props.navigation.navigate('ARContainer')
+            }}
                 title="Experiment"
               >
                 <Text style={styles2.buttonText}>Experiment</Text>

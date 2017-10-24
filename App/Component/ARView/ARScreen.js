@@ -8,7 +8,7 @@ import {
   Button
 } from 'react-native';
 // import Expo, { Permissions, BlurView, Modal} from 'expo';
-import Camera from 'react-native-camera';
+// import Camera from 'react-native-camera';
 import { NavigationActions } from 'react-navigation';
 // import * as THREE from 'three';
 // import ExpoTHREE from 'expo-three';
@@ -19,23 +19,23 @@ YellowBox.ignoreWarnings(['THREE', "ExpoTHREE"]);
 console.disableYellowBox = true;
 
 export default class ARScreen extends React.Component {
-  state = {
-    hasCameraPermission: true,
-    clicked: false,
-    yPosition: 0,
-    xPosition: 0
-  }
+  // state = {
+  //   hasCameraPermission: true,
+  //   clicked: false,
+  //   yPosition: 0,
+  //   xPosition: 0
+  // }
 
   routeIsComplete = false;
   yPosition = 0;
   xPosition = 0;
   componentWillMount() {
     // const { status } = await Permissions.askAsync(Permissions.CAMERA);
-    this.setState({
-      hasCameraPermission: 'granted',
-      yPosition: 0,
-      xPosition: 0
-    });
+    // this.setState({
+    //   hasCameraPermission: 'granted',
+    //   yPosition: 0,
+    //   xPosition: 0
+    // });
     // this.material = new THREE.MeshBasicMaterial({ color: 0xff0000 })
     // const panGrant = (_, gestureState) => {
     //   // this.material.color.setHex(0x00ff00);
@@ -97,56 +97,22 @@ export default class ARScreen extends React.Component {
     // });
   }
 
-  componentWillUnmount() {
-    this.setState({
-      hasCameraPermission: false
-    })
-    this.panResponder = null;
-  }
+  // componentWillUnmount() {
+  //   this.setState({
+  //     hasCameraPermission: false
+  //   })
+  //   this.panResponder = null;
+  // }
 
   render() {
     let landmarkText = '';
     return (
 
-      <Camera
-        ref={(cam) => {
-          this.camera = cam;
-        }}
-        style={styles.preview}
-        type={Camera.Constants.Type.back}
-        >
-        {/* <Text style={styles.capture}>{this.props.currentStop.name}</Text>
-        <Button
-          title="Collect Badge"
-          style={{ alignSelf: "center" }}
-          onPress={() => {
-            this.props.addBadge(this.props.currentStop.name);
-            this.props.navigation.goBack();
-          }
-          }
-        /> */}
+     
 
-          {/* <View
-          style={{
-            flex: 1, backgroundColor: 'transparent',
-            flexDirection: 'column',
-          }}
-         >  
-           <Text>{this.state.yPosition}</Text> 
-          <Expo.GLView
-            {...this.panResponder.panHandlers}
-            ref={(ref) => this._glView = ref}
-            style={{
-              flex: 1, backgroundColor: 'transparent',
-              flexDirection: 'row',
-            }}
-            onContextCreate={this._onGLContextCreate}
-          />
-
-         </View>   */}
-
-        <Button 
-        title={this.props.currentStop.name}
+        <View>
+          <Button 
+        title={`${this.props.currentStop.name}`}
         onPress={() => {
           this.props.addBadge(this.props.currentStop.name);
 
@@ -180,7 +146,7 @@ export default class ARScreen extends React.Component {
         />
 
 
-      </Camera>
+        </View>
     );
   }
 }
