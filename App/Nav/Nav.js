@@ -5,6 +5,7 @@ import RoutesContainer from "../Containers/RoutesContainer";
 import Profile from "../Containers/ProfileContainer";
 import MapViewer from "../Component/MapView/MapViewer";
 import testContainer from "../Containers/testContainer";
+import ARContainer from "../Containers/ARContainer"
 import styles from "./Styles/NavStyle";
 import { connect } from "react-redux";
 import App from "../Containers/App";
@@ -17,7 +18,8 @@ export const Nav = StackNavigator(
     LoginContainer: { screen: LoginContainer },
     Profile: { screen: Profile },
     MapViewer: { screen: MapViewer },
-    testContainer: { screen: testContainer }
+    testContainer: { screen: testContainer },
+    ARContainer: { screen: ARContainer}
   },
   {
     // Default config for all screens
