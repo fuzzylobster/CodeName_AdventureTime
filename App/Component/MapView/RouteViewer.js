@@ -21,7 +21,8 @@ export default class RouteViewer extends Component {
     tempAdventure: {
       name: "tempAdventure",
       markerLocations: [],
-      cities: []
+      cities: [],
+      miles: 0
     },
   };
   render() {
@@ -50,14 +51,15 @@ export default class RouteViewer extends Component {
         </Row>
         <Row size={40}>
           <PlaceSearch
-            setMarker={(newMarker, city) => {
+            setMarker={(newMarker, city, miles) => {
               this.setState({
                 tempAdventure: {
                   name: "tempAdv",
                   markerLocations: this.state.tempAdventure.markerLocations.concat(
                     newMarker
                   ),
-                  cities: this.state.tempAdventure.cities.concat(city) 
+                  cities: this.state.tempAdventure.cities.concat(city),
+                  miles: this.state.tempAdventure.miles + miles
                 }
               });
             }}

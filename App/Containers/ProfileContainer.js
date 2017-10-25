@@ -9,7 +9,8 @@ const mapStateToProps = state => {
     stockPhotos: state.people.stockPhotos,
     background: state.people.Background,
     badges: state.people.badges,
-    advCounter: state.people.AdvCounter
+    advCounter: state.people.AdvCounter,
+    miles: state.people.miles
   };
 };
 

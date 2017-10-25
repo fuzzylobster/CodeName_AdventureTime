@@ -126,7 +126,7 @@ export default class ARScreen extends React.Component {
 
           if (this.routeIsComplete) {
             alert(`Congratulations! You've finished the route and earned ${this.props.currentRoute.length} badges along the way.`)
-
+            this.props.updateMiles(this.props.miles + this.props.routeDistance);
             this.props.endRoute();
             this.props.navigation.dispatch(NavigationActions.reset({
               index: 0,

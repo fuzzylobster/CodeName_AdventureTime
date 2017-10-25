@@ -36,16 +36,20 @@ const create = (baseURL = "http://889062c7.ngrok.io") => {
 
   const saveRoute = route => api.post("/route", route); 
 
-  const addBadge = (badges, userID) => api.patch(`users/${userID}`, {
+  const addBadge = (badges, userID) => api.patch(`users/1`, {
     badges: badges
   });
 
-  const endRoute = (newAdvCount, userID) => api.patch(`users/${userID}`, {
+  const endRoute = (newAdvCount, userID) => api.patch(`users/1`, {
     advCounter: newAdvCount
   });
 
   const saveCities = newCities => api.patch(`users/1`, {
     cities: newCities
+  });
+
+  const updateMiles = newMiles => api.patch('users/1', {
+    miles: newMiles
   });
 
   return {
@@ -55,7 +59,8 @@ const create = (baseURL = "http://889062c7.ngrok.io") => {
     saveRoute,
     addBadge,
     endRoute,
-    saveCities
+    saveCities,
+    updateMiles
   };
 };
 

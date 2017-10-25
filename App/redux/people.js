@@ -148,7 +148,8 @@ const initialState = {
       type: "Choose your starting point and let us handle the rest"
     }
   ],
-  token: ""
+  token: "",
+  miles: 0
 };
 
 export default function peopleReducer(state = initialState, action) {
@@ -202,6 +203,10 @@ export default function peopleReducer(state = initialState, action) {
       return Object.assign({}, state, {
         cities: state.cities.concat(action.cities)
       });
+    case "SET_miles":
+      return Object.assign({}, state, {
+        miles: state.miles + action.miles
+      })
     default:
       return state;
   }
