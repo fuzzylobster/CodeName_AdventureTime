@@ -18,7 +18,8 @@ const mapStateToProps = state => {
     gps: state.people.gps,
     markers: state.people.adventure.markerLocations,
     token: state.people.token,
-    mapRecommendations: state.people.recommendations
+    mapRecommendations: state.people.recommendations,
+    user: state.people.user
   };
 };
 

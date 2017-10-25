@@ -13,7 +13,9 @@ import {
   Form,
   FooterTab,
   Item,
+  Icon,
   Input,
+  Right,
   Button,
   Label,
   Footer,
@@ -24,6 +26,7 @@ import MapView from "react-native-maps";
 import RecommendationsMap from "./RecommendationsMap";
 import { BottomTopics } from "./Topics";
 import { stringify as queryString } from "query-string";
+import OdysseyList from "./OdysseyList";
 
 const CLIENT_ID = "NWSH4V1UKUFIVAP2QY15LOMDVIZ5HMY1WAYL31VFECAHNZTN";
 const CLIENT_SECRET = "U2TGSQJK4YYQT1NI25HAKQWW3QMSMEO42AVS0LQ2CU0TPMOH";
@@ -160,7 +163,8 @@ export default class MapViewer extends Component {
   state = {
     mapRegion: null,
     gpsAccuracy: null,
-    recommendations: []
+    recommendations: [],
+    loc: {}
   };
   watchID = null;
 
@@ -173,6 +177,14 @@ export default class MapViewer extends Component {
         longitudeDelta: 0.00421 * 1.5
       };
 
+      let loc = {
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+        latitudeDelta: 0.00922 * 1.5,
+        longitudeDelta: 0.00421 * 1.5
+      };
+      this.setState({ gps: loc });
+
       this.onRegionChange(region, position.coords.accuracy);
     });
   }
@@ -182,7 +194,9 @@ export default class MapViewer extends Component {
   }
 
   onRegionChange(region, gpsAccuracy) {
-    this.fetchVenues(region);
+    if (this.lookingFor) {
+      this.fetchVenues(region);
+    }
 
     this.setState({
       mapRegion: region,
@@ -213,6 +227,7 @@ export default class MapViewer extends Component {
           console.log(this.state.recommendations);
         }
         console.log(this.props.mapRecommendations);
+        this.setState({ lookingFor: null });
       })
       .catch(err => console.log(err));
   }
@@ -253,11 +268,19 @@ export default class MapViewer extends Component {
     if (mapRegion) {
       return (
         <Container>
-          <Header />
+          <Header>
+            <Right>
+              <Button transparent onPress={() => this.props.openDrawer()}>
+                <Icon name="menu" />
+              </Button>
+            </Right>
+          </Header>
 
           <RecommendationsMap
             {...this.state}
             onRegionChange={this.onRegionChange.bind(this)}
+            user={this.props.user}
+            setMarker={this.props.setMarker}
           />
 
           <Footer>

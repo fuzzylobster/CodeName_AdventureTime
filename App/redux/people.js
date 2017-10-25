@@ -212,7 +212,7 @@ export default function peopleReducer(state = initialState, action) {
 =======
     case "SET_Recommendations":
       return Object.assign({}, state, {
-        token: action.Recommendations
+        recommendations: action.Recommendations
       });
 >>>>>>> [feat] tabbed map for destination selection
     default:

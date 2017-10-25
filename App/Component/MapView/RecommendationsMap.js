@@ -1,8 +1,9 @@
 import MapView from "react-native-maps";
 import React, { Component } from "react";
-import { Platform, StyleSheet, Text, View, Button } from "react-native";
+import { Platform, StyleSheet, Text, View } from "react-native";
 import {
   Container,
+  Button,
   Header,
   Card,
   CardItem,
@@ -23,6 +24,7 @@ import {
 } from "native-base";
 import styles from "./styles";
 import Recommendation from "./Recommendation";
+import CardImage from "./../CardImage";
 const renderIf = function(condition, content) {
   if (condition) {
     //console.log(this.props.recommendations);
@@ -47,7 +49,7 @@ export default class RecommendationsMap extends Component {
         onRegionChange={this.props.onRegionChange}
       >
         <MapView.Circle
-          center={this.props.mapRegion}
+          center={this.props.gps}
           radius={this.props.gpsAccuracy * 1.5}
           strokeWidth={0.5}
           strokeColor="rgba(66, 180, 230, 1)"
@@ -55,7 +57,7 @@ export default class RecommendationsMap extends Component {
         />
 
         <MapView.Circle
-          center={this.props.mapRegion}
+          center={this.props.gps}
           radius={5}
           strokeWidth={0.5}
           strokeColor="rgba(66, 180, 230, 1)"
@@ -71,7 +73,31 @@ export default class RecommendationsMap extends Component {
                 latitude: marker.venue.location.lat,
                 longitude: marker.venue.location.lng
               }}
-            />
+            >
+              <MapView.Callout
+                tooltip={true}
+                onPress={() =>
+                  this.props.setMarker(
+                    {
+                      name: marker.venue.name,
+                      location: {
+                        lat: marker.venue.location.lat,
+                        lng: marker.venue.location.lng,
+                        tip: marker.tips[0].text || "",
+                        contact: marker.venue.contact.formattedPhone || ""
+                      }
+                    },
+                    marker.venue.location.city,
+                    marker.venue.location.distance
+                  )}
+              >
+                <View>
+                  <Button>
+                    <Text>Select me</Text>
+                  </Button>
+                </View>
+              </MapView.Callout>
+            </MapView.Marker>
           ))
         )}
       </MapView.Animated>
