@@ -20,8 +20,9 @@ export default class RouteViewer extends Component {
   state = {
     tempAdventure: {
       name: "tempAdventure",
-      markerLocations: []
-    }
+      markerLocations: [],
+      cities: []
+    },
   };
   render() {
     const { navigate } = this.props.navigation;
@@ -49,13 +50,14 @@ export default class RouteViewer extends Component {
         </Row>
         <Row size={40}>
           <PlaceSearch
-            setMarker={newMarker => {
+            setMarker={(newMarker, city) => {
               this.setState({
                 tempAdventure: {
                   name: "tempAdv",
                   markerLocations: this.state.tempAdventure.markerLocations.concat(
                     newMarker
-                  )
+                  ),
+                  cities: this.state.tempAdventure.cities.concat(city) 
                 }
               });
             }}

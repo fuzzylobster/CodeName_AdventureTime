@@ -218,8 +218,8 @@ export default class MapViewer extends Component {
           <MapView.Marker
             key={index}
             coordinate={{
-              latitude: marker.lat,
-              longitude: marker.lng
+              latitude: marker.location.lat,
+              longitude: marker.location.lng
             }}
             title={marker.title}
             description={marker.description}

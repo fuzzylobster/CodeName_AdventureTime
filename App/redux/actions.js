@@ -70,3 +70,10 @@ export function Set_Badges(badges) {
     badges
   };
 }
+
+export function Set_cities(cities) {
+  return {
+    type: "SET_cities",
+    cities
+  };
+}

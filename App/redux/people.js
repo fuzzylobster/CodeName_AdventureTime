@@ -30,6 +30,7 @@ const initialState = {
       image: "https://media.timeout.com/images/100729813/image.jpg"
     }
   ],
+  cities: [],
   adventure: {
     name: "aaron",
     markerLocations: [
@@ -196,6 +197,10 @@ export default function peopleReducer(state = initialState, action) {
     case "SET_Badges":
       return Object.assign({}, state, {
         badges: action.badges
+      });
+    case "SET_cities":
+      return Object.assign({}, state, {
+        cities: state.cities.concat(action.cities)
       });
     default:
       return state;

@@ -20,7 +20,10 @@ export default class PlaceSearch extends Component {
             renderDescription={row => row.description} // custom description render
             onPress={(data, details = null) => {
               // 'details' is provided when fetchDetails = true
-              this.props.setMarker(details.geometry.location);
+              this.props.setMarker({
+                name: details.formatted_address,
+                location: details.geometry.location
+                }, details.address_components[3].short_name);
               console.log(data, details);
             }}
             getDefaultValue={() => ""}
