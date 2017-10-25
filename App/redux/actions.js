@@ -42,7 +42,6 @@ export function Marker_locations(mark) {
   };
 }
 
-
 export function Add_Badge(badge) {
   return {
     type: "ADD_BADGE",
@@ -82,5 +81,11 @@ export function Set_miles(miles) {
   return {
     type: "SET_miles",
     miles
+  };
+}
+export function Recommendations(Recommendations) {
+  return {
+    type: "SET_Recommendations",
+    Recommendations
   };
 }
