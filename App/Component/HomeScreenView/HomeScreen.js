@@ -38,6 +38,7 @@ export default class HomeScreen extends Component {
         this.props.set_Token(Response.data[0].id);
         this.props.set_Adv_Counter(Response.data[0].advCounter);
         this.props.set_Badges(Response.data[0].badges);
+        this.props.set_miles(Response.data[0].miles);
         //Response.data[0].id
       }).catch(err => {
         console.error('Error:', err);

@@ -77,3 +77,10 @@ export function Set_cities(cities) {
     cities
   };
 }
+
+export function Set_miles(miles) {
+  return {
+    type: "SET_miles",
+    miles
+  };
+}

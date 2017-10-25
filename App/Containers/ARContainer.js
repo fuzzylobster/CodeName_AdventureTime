@@ -12,7 +12,9 @@ const mapStateToProps = state => {
     currentStopIndex: state.people.CurrentStopIndex,
     currentRoute: state.people.adventure.markerLocations,
     currentBadges: state.people.badges,
-    advCount: state.people.AdvCounter
+    advCount: state.people.AdvCounter,
+    miles: state.people.miles,
+    routeDistance: state.people.adventure.miles
   };
 };
 
@@ -36,10 +38,13 @@ const mapDispatchToProps = dispatch => {
         dispatch(Current_Stop(route[nextIndex]))
       
     },
+    updateMiles: (miles) => {
+      let api = Api.create();
+      api.updateMiles(miles);
+    },
     endRoute: (newAdvCount) => {
       let api = Api.create();
       api.endRoute(newAdvCount);
-
       
     }
   };

@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { Select_user, Token, Set_Adv_Counter, Set_Badges } from "../redux/actions";
+import { Select_user, Token, Set_Adv_Counter, Set_Badges, Set_miles } from "../redux/actions";
 import HomeScreen from "../Component/HomeScreenView/HomeScreen";
 
 const mapStateToProps = state => {
@@ -23,6 +23,9 @@ const mapDispatchToProps = dispatch => {
     },
     set_Badges: badges => {
       dispatch(Set_Badges(badges));
+    },
+    set_miles: miles => {
+      dispatch(Set_miles(miles));
     }
   };
 };
