@@ -148,11 +148,12 @@ export default class LoginScreen extends Component {
             this.props.stop(response);
             // console.log(JSON.stringify(response.data));
             this._onValueChange(STORAGE_KEY, response.data.jwtToken);
+            this.props.navigation.navigate("HomeScreenContainer");
           });
 
-        if (this.props.user.name) {
-          this.props.navigation.navigate("HomeScreenContainer");
-        }
+        // if (this.props.user.name) {
+        //   this.props.navigation.navigate("HomeScreenContainer");
+        // }
       })
       .catch(error => {
         this.setState({ user: { error: error } });

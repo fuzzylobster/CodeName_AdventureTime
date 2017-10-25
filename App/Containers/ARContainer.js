@@ -3,7 +3,7 @@ import { Add_Badge, Current_Stop, Current_adventure } from "../redux/actions";
 import { Platform } from 'react-native';
 import ARScreen from "../Component/ARView/ARScreen";
 import Api from "../Services/Api"
-// import ARScreenAndroid from '../Component/ARView/ARScreenAndroid'
+
 
 const mapStateToProps = state => {
   return { 
@@ -39,15 +39,6 @@ const mapDispatchToProps = dispatch => {
     endRoute: (newAdvCount) => {
       let api = Api.create();
       api.endRoute(newAdvCount);
-      dispatch(Current_adventure({
-        name: "none",
-        markerLocations: [
-          {
-            name: 'default',
-            location: {lat: 0, lng: 0}
-          }
-        ]
-      }))
 
       
     }
