@@ -60,12 +60,20 @@ export default class ProfileView extends Component {
         </Modal>
         <Row size={42}>
           <View style={styles.container}>
-            <ProfileHeader
-              user={this.props.user}
-              background={this.props.background}
-            />
-            <ProfileBadges advCounter={this.props.advCounter} 
-            badges={this.props.badges} />
+            <Grid>
+              <Row>
+                <Col>
+                  <ProfileHeader
+                    user={this.props.user}
+                    background={this.props.background}
+                  />
+                </Col>
+                <Col>
+                  <ProfileBadges advCounter={this.props.advCounter} 
+                  badges={this.props.badges} />
+                </Col>
+              </Row>
+            </Grid>
           </View>
         </Row>
         <Row size={15}>

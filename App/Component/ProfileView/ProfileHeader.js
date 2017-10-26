@@ -11,21 +11,13 @@ export default class ProfileHeader extends Component {
   }
   render() {
     return (
-      <Grid>
-        <Row>
-          <Col>
-              <Image
-               style={styles.profilePic}
-               source={{ uri: this.props.user.picture.data.url }}
-               resizeMode={"cover"}
-             />
-          </Col>
-          <Col>
-            {/* <ProfileBadges advCounter={this.props.advCounter} 
-            badges={this.props.badges} /> */}
-          </Col>
-        </Row>
-      </Grid>
+
+        <Image
+          style={styles.profilePic}
+          source={{ uri: this.props.user.picture.data.url }}
+          resizeMode={"cover"}
+        />
+
       // <Image
       //   style={styles.headerBackground}
       //   source={{ uri: this.props.background }}

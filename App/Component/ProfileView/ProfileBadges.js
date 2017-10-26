@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Platform, Text, View } from "react-native";
+import { Col, Row, Grid } from "react-native-easy-grid";
 
 import styles from "./../Styles/ProfileBadgesStyle";
 
@@ -34,28 +35,58 @@ export default class ProfileBadges extends Component {
   }
   render() {
     return (
-      <View style={[styles.bar, styles.badgeContainer]}>
-        <View style={[styles.barItem, styles.barSeparator]}>
-          <Text style={styles.barTop}>{this.props.advCounter}</Text>
-          {/** Adventures completed*/}
-          <Text style={styles.barBottom}>Adventures completed</Text>
-        </View>
-        <View style={[styles.barItem, styles.barSeparator]}>
-          <Text style={styles.barTop}>{this.milesTrekked()}</Text>
-          {/** Miles trekked*/}
-          <Text style={styles.barBottom}>Miles Trekked</Text>
-        </View>
-        <View style={[styles.barItem, styles.barSeparator]}>
-          <Text style={styles.barTop}>{this.cities()}</Text>
-          {/** Cities Conquered*/}
-          <Text style={styles.barBottom}>Cities Conquered</Text>
-        </View>
-        <View style={styles.barItem}>
-          <Text style={styles.barTop}>{this.badges()}</Text>
-          {/** Badges Completed*/}
-          <Text style={styles.barBottom}>Badges Earned</Text>
-        </View>
-      </View>
+      <Grid>
+        <Row>
+          <Col>
+          <View>
+          <Text>{this.props.advCounter}</Text>
+          <Text>Adventures completed</Text>
+          </View>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+             <View>
+             <Text>{this.milesTrekked()}</Text> 
+             <Text>Miles Trekked</Text>
+             </View>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+             <Text>{this.cities()}</Text>
+             <Text>Cities Conquered</Text>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Text>{this.badges()}</Text>
+             <Text>Badges Earned</Text>
+          </Col>
+        </Row>
+      </Grid>
+      // <View style={[styles.bar, styles.badgeContainer]}>
+      //   <View style={[styles.barItem, styles.barSeparator]}>
+      //     <Text style={styles.barTop}>{this.props.advCounter}</Text>
+      //     {/** Adventures completed*/}
+      //     <Text style={styles.barBottom}>Adventures completed</Text>
+      //   </View>
+      //   <View style={[styles.barItem, styles.barSeparator]}>
+      //     <Text style={styles.barTop}>{this.milesTrekked()}</Text>
+      //     {/** Miles trekked*/}
+      //     <Text style={styles.barBottom}>Miles Trekked</Text>
+      //   </View>
+      //   <View style={[styles.barItem, styles.barSeparator]}>
+      //     <Text style={styles.barTop}>{this.cities()}</Text>
+      //     {/** Cities Conquered*/}
+      //     <Text style={styles.barBottom}>Cities Conquered</Text>
+      //   </View>
+      //   <View style={styles.barItem}>
+      //     <Text style={styles.barTop}>{this.badges()}</Text>
+      //     {/** Badges Completed*/}
+      //     <Text style={styles.barBottom}>Badges Earned</Text>
+      //   </View>
+      // </View>
     );
   }
 }
