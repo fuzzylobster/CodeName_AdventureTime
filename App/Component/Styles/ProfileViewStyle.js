@@ -10,7 +10,8 @@ export default StyleSheet.create({
   },
   modal: {
     flex: 1,
-    padding: 40
+    padding: 40,
+    backgroundColor: "#FFECEC"
   },
   image: {
     flex: 1,
@@ -20,7 +21,13 @@ export default StyleSheet.create({
     color: "#ffffff",
     alignSelf: "flex-end"
   },
-  header: {},
+  header: {
+    fontSize: 25,
+    color: "#acc878",
+    fontWeight: "bold",
+    textShadowColor: "#000000",
+    textShadowOffset: {width: 1, height: 1}
+  },
   badges: {},
   photos: {},
   pastAdv: {}

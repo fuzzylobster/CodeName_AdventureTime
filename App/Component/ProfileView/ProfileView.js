@@ -61,12 +61,12 @@ export default class ProfileView extends Component {
         <Row size={20}>
           <View style={styles.container}>
             <Grid>
-              <Row size={15}>
+              <Row size={25}>
                 <Col>
-                <Text>{this.props.user.name}</Text>
+                <Text style={styles.header}>{this.props.user.name}</Text>
                 </Col>
               </Row>
-              <Row size={85}>
+              <Row size={80}>
                 <Col>
                   <ProfileHeader
                     user={this.props.user}
@@ -83,12 +83,12 @@ export default class ProfileView extends Component {
         </Row>
         <Row size={15}>
           <Grid>
-            <Row size={15}>
+            <Row size={25}>
               <Col>
-              <Text>Your Photos</Text>
+              <Text style={styles.header}>Your Photos</Text>
               </Col>
             </Row>
-            <Row size={85}>
+            <Row size={75}>
               <Col>
                 <View>
                   <ProfilePhotos
@@ -103,12 +103,12 @@ export default class ProfileView extends Component {
         </Row>
         <Row size={43}>
           <Grid>
-            <Row size={15}>
+            <Row size={25} style={styles.header}>
               <Col>
-                <Text>Your Adventures</Text>
+                <Text style={styles.header}>Your Adventures</Text>
               </Col>
             </Row>
-            <Row size={85}>
+            <Row size={75}>
               <Col>
                 <ProfilePastAdv
                 user={this.props.user}
