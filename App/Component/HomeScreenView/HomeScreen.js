@@ -49,7 +49,7 @@ export default class HomeScreen extends Component {
   }
   render() {
     return (
-      <Grid>
+      <Grid style={styles.body}>
         <Row size={10}>
           <HomeScreenHeader
             user={this.props.user}

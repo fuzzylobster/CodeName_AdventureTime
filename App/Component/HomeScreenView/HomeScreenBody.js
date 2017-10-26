@@ -44,7 +44,7 @@ export default class HomeScreen extends Component {
             ))}
           </Swiper>
         </Row>
-        <Row style={styles.select} size={10}>
+        {/* <Row style={styles.select} size={10}>
           <Button
             style={styles.selectButton}
             onPress={() => {
@@ -53,7 +53,7 @@ export default class HomeScreen extends Component {
           >
             <Text style={styles.selectText}>I like this one!</Text>
           </Button>
-        </Row>
+        </Row> */}
       </Grid>
     );
   }
@@ -65,10 +65,15 @@ const styles = StyleSheet.create({
     alignItems: "flex-end"
   },
   greetingText: {
-    fontSize: 25
+    fontSize: 25,
+    color: "#acc878",
+    fontWeight: "bold",
+    textShadowColor: "#000000",
+    textShadowOffset: {width: 1, height: 1}
   },
   greetingText2: {
-    fontSize: 15
+    fontSize: 15,
+    color: "#000000"
   },
   cardStyle: {
     width: 75
@@ -81,7 +86,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-around"
   },
   selectButton: {
-    padding: 10
+    padding: 10,
+    backgroundColor: "#acc878"
   },
   selectText: {
     color: "#FFFFFF",

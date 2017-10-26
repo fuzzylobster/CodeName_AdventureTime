@@ -9,7 +9,8 @@ import {
   Item,
   Input,
   Label,
-  Text
+  Text,
+  Button
 } from "native-base";
 import { SocialIcon } from "react-native-elements";
 import ImagePicker from "react-native-image-picker";
@@ -18,7 +19,6 @@ import {
   View,
   Image,
   TouchableOpacity,
-  Button,
   Alert,
   AsyncStorage
 } from "react-native";
@@ -161,8 +161,8 @@ export default class LoginScreen extends Component {
   }
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: "center" }}>
-        <TouchableOpacity>
+      <View style={styles.body}>
+        {/* <TouchableOpacity>
           <Button
             title="Sign In With Facebook"
             style={{ backgroundColor: "blue" }}
@@ -170,27 +170,26 @@ export default class LoginScreen extends Component {
               this.fbSignIn();
             }}
           />
-        </TouchableOpacity>
-
-        <TouchableOpacity>
-          <Button
-            title="Sign In With Google"
-            style={{ backgroundColor: "red" }}
-            onPress={() => {
+        </TouchableOpacity> */}
+        <Image source={require('../../odycity.png')}
+        style={styles.logo} />
+        <Button
+         onPress={() => {
               this.googleSignIn();
             }}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity>
+        style={styles.googleButton}>
+          <Text>Sign in with Google</Text>
+        </Button>
+        {/* <TouchableOpacity>
           <Button
-            title="Sign In With blank"
             style={{ backgroundColor: "red" }}
             onPress={() => {
               this.blank();
-            }}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity>
+            }}>
+            <Text>Sign in with dev mode</Text>
+            </Button>
+        </TouchableOpacity> */}
+        {/* <TouchableOpacity>
           <Button
             title="Image Picker"
             style={{ backgroundColor: "red" }}
@@ -198,7 +197,7 @@ export default class LoginScreen extends Component {
               this.newImage();
             }}
           />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     );
   }
