@@ -192,7 +192,6 @@ export default function peopleReducer(state = initialState, action) {
       return Object.assign({}, state, {
         token: action.token
       });
-<<<<<<< HEAD
     case "SET_Adv_Counter":
       return Object.assign({}, state, {
         AdvCounter: action.advCounter
@@ -209,12 +208,10 @@ export default function peopleReducer(state = initialState, action) {
       return Object.assign({}, state, {
         miles: state.miles + action.miles
       })
-=======
     case "SET_Recommendations":
       return Object.assign({}, state, {
         recommendations: action.Recommendations
       });
->>>>>>> [feat] tabbed map for destination selection
     default:
       return state;
   }
