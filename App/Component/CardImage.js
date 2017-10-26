@@ -48,7 +48,7 @@ export default class CardImage extends Component {
             </CardItem>
             {this.renderIf(
               this.props.adventure.likes,
-              <CardItem>
+              <CardItem style={styles.card}>
                 <Left>
                   <Button transparent>
                     <Icon active name="thumbs-up" />

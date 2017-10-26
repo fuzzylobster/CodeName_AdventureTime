@@ -10,7 +10,7 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#000000",
+    backgroundColor: "#FFECEC",
     overflow: "visible"
   },
   swiper: {

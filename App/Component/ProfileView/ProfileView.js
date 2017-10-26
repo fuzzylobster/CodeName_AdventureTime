@@ -58,10 +58,15 @@ export default class ProfileView extends Component {
             </Text>
           </View>
         </Modal>
-        <Row size={42}>
+        <Row size={20}>
           <View style={styles.container}>
             <Grid>
-              <Row>
+              <Row size={15}>
+                <Col>
+                <Text>{this.props.user.name}</Text>
+                </Col>
+              </Row>
+              <Row size={85}>
                 <Col>
                   <ProfileHeader
                     user={this.props.user}
@@ -77,19 +82,41 @@ export default class ProfileView extends Component {
           </View>
         </Row>
         <Row size={15}>
-          <View>
-            <ProfilePhotos
-              modalChange={this.setModalVisible.bind(this)}
-              photos={this.props.photos}
-              stockPhotos={this.props.stockPhotos}
-            />
-          </View>
+          <Grid>
+            <Row size={15}>
+              <Col>
+              <Text>Your Photos</Text>
+              </Col>
+            </Row>
+            <Row size={85}>
+              <Col>
+                <View>
+                  <ProfilePhotos
+                    modalChange={this.setModalVisible.bind(this)}
+                    photos={this.props.photos}
+                    stockPhotos={this.props.stockPhotos}
+                  />
+                </View>
+              </Col>
+            </Row>
+          </Grid>
         </Row>
         <Row size={43}>
-          <ProfilePastAdv
-            user={this.props.user}
-            adventures={this.props.adventures}
-          />
+          <Grid>
+            <Row size={15}>
+              <Col>
+                <Text>Your Adventures</Text>
+              </Col>
+            </Row>
+            <Row size={85}>
+              <Col>
+                <ProfilePastAdv
+                user={this.props.user}
+                adventures={this.props.adventures}
+                />
+              </Col>
+            </Row>
+          </Grid>
         </Row>
       </Grid>
     );

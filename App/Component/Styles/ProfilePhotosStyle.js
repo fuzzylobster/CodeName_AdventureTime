@@ -11,7 +11,7 @@ export default StyleSheet.create({
     margin: 2
   },
   photoBox: {
-    backgroundColor: "#000000"
+    backgroundColor: "#FFECEC"
   },
   modal: {
     flex: 1,

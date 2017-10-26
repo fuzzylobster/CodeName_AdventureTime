@@ -11,13 +11,14 @@ export default class ProfileHeader extends Component {
   }
   render() {
     return (
-
         <Image
           style={styles.profilePic}
           source={{ uri: this.props.user.picture.data.url }}
           resizeMode={"cover"}
         />
 
+
+      
       // <Image
       //   style={styles.headerBackground}
       //   source={{ uri: this.props.background }}

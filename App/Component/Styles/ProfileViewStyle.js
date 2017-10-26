@@ -6,12 +6,11 @@ export default StyleSheet.create({
     flex: 1,
     //justifyContent: 'center',
     //alignItems: 'center',
-    backgroundColor: "#F5FCFF"
+    backgroundColor: "#FFECEC"
   },
   modal: {
     flex: 1,
-    padding: 40,
-    backgroundColor: "#000000"
+    padding: 40
   },
   image: {
     flex: 1,
