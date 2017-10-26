@@ -23,7 +23,7 @@ export default StyleSheet.create({
   },
   header: {
     fontSize: 25,
-    color: "#acc878",
+    color: "#ffffff",
     fontWeight: "bold",
     textShadowColor: "#000000",
     textShadowOffset: {width: 1, height: 1},
@@ -42,7 +42,8 @@ export default StyleSheet.create({
     color: "#FFFFFF"
   },
   photoContainer: {
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: "#FFECEC"
   },
   badges: {},
   photos: {},
