@@ -29,6 +29,18 @@ export default StyleSheet.create({
     textShadowOffset: {width: 1, height: 1},
     backgroundColor: "#FFECEC"
   },
+  topHeader: {
+    fontSize: 25,
+    color: "#FFFFFF",
+    fontWeight: "bold",
+    textShadowColor: "#000000",
+    textShadowOffset: {width: 1, height: 1},
+    backgroundColor: "#9E2626"
+  },
+  profHeader: {
+    backgroundColor: "#9E2626",
+    color: "#FFFFFF"
+  },
   badges: {},
   photos: {},
   pastAdv: {}

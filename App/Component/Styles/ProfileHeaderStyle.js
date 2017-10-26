@@ -27,8 +27,9 @@ export default StyleSheet.create({
     width: null,
     alignSelf: "stretch",
     borderRadius: 100,
-    borderColor: "#fff",
-    borderWidth: 4
+    borderColor: "#6c1a1a",
+    borderWidth: 5,
+    margin: 5
   },
   name: {
     marginTop: 20,

@@ -61,19 +61,19 @@ export default class ProfileView extends Component {
         <Row size={20}>
           <View style={styles.container}>
             <Grid>
-              <Row size={25} style={styles.header}>
+              <Row size={25} style={styles.topHeader}>
                 <Col>
-                <Text style={styles.header}>{this.props.user.name}</Text>
+                <Text style={styles.topHeader}>{this.props.user.name}</Text>
                 </Col>
               </Row>
-              <Row size={80}>
-                <Col>
+              <Row size={80} style={styles.profHeader}>
+                <Col size={35}>
                   <ProfileHeader
                     user={this.props.user}
                     background={this.props.background}
                   />
                 </Col>
-                <Col>
+                <Col size={65}>
                   <ProfileBadges advCounter={this.props.advCounter} 
                   badges={this.props.badges} />
                 </Col>

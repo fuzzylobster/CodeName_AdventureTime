@@ -35,29 +35,29 @@ export default class ProfileBadges extends Component {
   }
   render() {
     return (
-      <Grid>
+      <Grid style={styles.badgeContainer}>
         <Row>
           <Col>
           <View>
-          <Text>{this.props.advCounter} Adventures completed</Text>
+          <Text style={styles.text}>{this.props.advCounter} Adventures completed</Text>
           </View>
           </Col>
         </Row>
         <Row>
           <Col>
              <View>
-             <Text>{this.milesTrekked} Miles Trekked</Text>
+             <Text style={styles.text}>{this.milesTrekked} Miles Trekked</Text>
              </View>
           </Col>
         </Row>
         <Row>
           <Col>
-             <Text>{this.cities()} Cities Conquered</Text>
+             <Text style={styles.text}>{this.cities()} Cities Conquered</Text>
           </Col>
         </Row>
         <Row>
           <Col>
-            <Text>{this.badges()} Badges Earned</Text>
+            <Text style={styles.text}>{this.badges()} Badges Earned</Text>
           </Col>
         </Row>
       </Grid>
