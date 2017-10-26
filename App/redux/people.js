@@ -149,7 +149,8 @@ const initialState = {
     }
   ],
   token: "",
-  miles: 0
+  miles: 0,
+  recommendations: []
 };
 
 export default function peopleReducer(state = initialState, action) {
@@ -207,6 +208,10 @@ export default function peopleReducer(state = initialState, action) {
       return Object.assign({}, state, {
         miles: state.miles + action.miles
       })
+    case "SET_Recommendations":
+      return Object.assign({}, state, {
+        recommendations: action.Recommendations
+      });
     default:
       return state;
   }
