@@ -26,7 +26,8 @@ export default StyleSheet.create({
     color: "#acc878",
     fontWeight: "bold",
     textShadowColor: "#000000",
-    textShadowOffset: {width: 1, height: 1}
+    textShadowOffset: {width: 1, height: 1},
+    backgroundColor: "#FFECEC"
   },
   badges: {},
   photos: {},
