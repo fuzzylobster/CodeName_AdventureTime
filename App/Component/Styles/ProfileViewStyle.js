@@ -27,7 +27,7 @@ export default StyleSheet.create({
     fontWeight: "bold",
     textShadowColor: "#000000",
     textShadowOffset: {width: 1, height: 1},
-    backgroundColor: "#FFECEC"
+    backgroundColor: "#6CBCBC"
   },
   topHeader: {
     fontSize: 25,
@@ -40,6 +40,9 @@ export default StyleSheet.create({
   profHeader: {
     backgroundColor: "#9E2626",
     color: "#FFFFFF"
+  },
+  photoContainer: {
+    alignItems: "center"
   },
   badges: {},
   photos: {},
