@@ -173,6 +173,7 @@ export default class LoginScreen extends Component {
         </TouchableOpacity> */}
         <Image source={require('../../odycity.png')}
         style={styles.logo} />
+        <View style={styles.center}>
         <Button
          onPress={() => {
               this.googleSignIn();
@@ -180,6 +181,7 @@ export default class LoginScreen extends Component {
         style={styles.googleButton}>
           <Text>Sign in with Google</Text>
         </Button>
+        </View>
         {/* <TouchableOpacity>
           <Button
             style={{ backgroundColor: "red" }}

@@ -15,6 +15,9 @@ export default StyleSheet.create({
     padding: 10,
     backgroundColor: "#acc878"
   },
+  background: {
+    flex: 1
+  },
   container: {
     flex: 1,
     justifyContent: "center",

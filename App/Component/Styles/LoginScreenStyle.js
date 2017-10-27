@@ -9,7 +9,8 @@ export default StyleSheet.create({
     alignItems: "center" },
   container: {
     flex: 1,
-    alignItems: "center"
+    alignItems: "center",
+    justifyContent: "center"
   },
   logo: {
     width: 350,
@@ -18,6 +19,7 @@ export default StyleSheet.create({
   googleButton: {
     backgroundColor: "#acc878",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    margin: 20
   }
 });
