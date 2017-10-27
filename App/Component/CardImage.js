@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, StyleSheet } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import {
   Container,
   Header,
@@ -90,7 +90,8 @@ export default class CardImage extends Component {
 const styles = StyleSheet.create({
   card: {
     borderRadius: 25,
-    backgroundColor: "transparent"
+    backgroundColor: "transparent",
+    justifyContent: "center"
   },
   cardWBorder: {
     borderColor: "#6CBCBC",
