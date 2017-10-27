@@ -43,7 +43,7 @@ export default class CardImage extends Component {
             <CardItem cardBody style={styles.card}>
               <Image
                 source={{ uri: this.props.adventure.cover }}
-                style={{ height: 200, width: null, flex: 1, borderRadius: 90 }}
+                style={{ height: 215, width: 215, borderRadius: 180, borderWidth: 7, borderColor: "#ACC878" }}
               />
             </CardItem>
             {this.renderIf(
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
   },
   selectButton: {
     height: 35,
-    backgroundColor: "#6CBCBC",
+    backgroundColor: "#6CBCBC"
   },
   selectText: {
     color: "#FFFFFF",
