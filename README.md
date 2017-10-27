@@ -22,7 +22,6 @@ However you decide on your journey be sure to share every memory by uploading yo
 1. [Development](#development)
     1. [Requirements](#requirements)
     1. [Installing Dependencies](#installing-dependencies)
-1. [Team](#team)
 
 ## Team 
   - __Product Owner__: Aaron Matheney
