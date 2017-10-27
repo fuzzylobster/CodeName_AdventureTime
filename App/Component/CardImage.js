@@ -46,7 +46,7 @@ export default class CardImage extends Component {
                 style={{ height: 215, width: 215, borderRadius: 180, borderWidth: 7, borderColor: "#ACC878" }}
               />
             </CardItem>
-            {this.renderIf(
+            {/* {this.renderIf(
               this.props.adventure.likes,
               <CardItem style={styles.card}>
                 <Left>
@@ -65,13 +65,13 @@ export default class CardImage extends Component {
                   <Text>11h ago</Text>
                 </Right>
               </CardItem>
-            )}
-            {this.renderIf(
+            )} */}
+            {/* {this.renderIf(
               !this.props.adventure.likes,
               <CardItem style={styles.card}>
                 <Text>{this.props.adventure.type}</Text>
               </CardItem>
-            )}
+            )} */}
             {this.renderIf(
               !this.props.adventure.likes,
               <CardItem style={styles.buttonContainer} style={styles.card}>

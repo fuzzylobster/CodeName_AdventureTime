@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Platform, Text, View, Image, Modal } from "react-native";
+import { Platform, Text, View, Image, Modal, ScrollView } from "react-native";
 import { Container, Header, Content } from "native-base";
 import { Col, Row, Grid } from "react-native-easy-grid";
 import Orientation from "react-native-orientation";
@@ -108,7 +108,7 @@ export default class ProfileView extends Component {
                 <Text style={styles.header}>Your Adventures</Text>
               </Col>
             </Row>
-            <Row size={87}>
+            <Row size={87} style={styles.advs}>
               <Col>
                 <ProfilePastAdv
                 user={this.props.user}

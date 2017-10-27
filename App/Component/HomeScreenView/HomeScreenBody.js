@@ -62,7 +62,7 @@ export default class HomeScreen extends Component {
 const styles = StyleSheet.create({
   greetingRow: {
     justifyContent: "space-around",
-    alignItems: "flex-end"
+    alignItems: "center"
   },
   greetingText: {
     fontSize: 25,

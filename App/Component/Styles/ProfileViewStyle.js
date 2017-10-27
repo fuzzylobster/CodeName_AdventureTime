@@ -27,7 +27,8 @@ export default StyleSheet.create({
     fontWeight: "bold",
     textShadowColor: "#000000",
     textShadowOffset: {width: 1, height: 1},
-    backgroundColor: "#6CBCBC"
+    backgroundColor: "#6CBCBC",
+    padding: 2
   },
   topHeader: {
     fontSize: 25,
@@ -35,7 +36,8 @@ export default StyleSheet.create({
     fontWeight: "bold",
     textShadowColor: "#000000",
     textShadowOffset: {width: 1, height: 1},
-    backgroundColor: "#9E2626"
+    backgroundColor: "#9E2626",
+    padding: 2
   },
   profHeader: {
     backgroundColor: "#9E2626",
