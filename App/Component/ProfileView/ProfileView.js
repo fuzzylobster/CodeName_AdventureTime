@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Platform, Text, View, Image, Modal } from "react-native";
+import { Platform, Text, View, Image, Modal, ScrollView } from "react-native";
 import { Container, Header, Content } from "native-base";
 import { Col, Row, Grid } from "react-native-easy-grid";
 import Orientation from "react-native-orientation";
@@ -58,30 +58,65 @@ export default class ProfileView extends Component {
             </Text>
           </View>
         </Modal>
-        <Row size={42}>
+        <Row size={20}>
           <View style={styles.container}>
-            <ProfileHeader
-              user={this.props.user}
-              background={this.props.background}
-            />
-            <ProfileBadges advCounter={this.props.advCounter} 
-            badges={this.props.badges} />
+            <Grid>
+              <Row size={25} style={styles.topHeader}>
+                <Col>
+                <Text style={styles.topHeader}>{this.props.user.name}</Text>
+                </Col>
+              </Row>
+              <Row size={80} style={styles.profHeader}>
+                <Col size={35}>
+                  <ProfileHeader
+                    user={this.props.user}
+                    background={this.props.background}
+                  />
+                </Col>
+                <Col size={65}>
+                  <ProfileBadges advCounter={this.props.advCounter} 
+                  badges={this.props.badges} />
+                </Col>
+              </Row>
+            </Grid>
           </View>
         </Row>
-        <Row size={15}>
-          <View>
-            <ProfilePhotos
-              modalChange={this.setModalVisible.bind(this)}
-              photos={this.props.photos}
-              stockPhotos={this.props.stockPhotos}
-            />
-          </View>
+        <Row size={25}>
+          <Grid>
+            <Row size={20} style={styles.header}>
+              <Col>
+              <Text style={styles.header}>Your Photos</Text>
+              </Col>
+            </Row>
+            <Row size={80} style={styles.photoContainer}>
+              <Col>
+                <View>
+                  <ProfilePhotos
+                    modalChange={this.setModalVisible.bind(this)}
+                    photos={this.props.photos}
+                    stockPhotos={this.props.stockPhotos}
+                  />
+                </View>
+              </Col>
+            </Row>
+          </Grid>
         </Row>
-        <Row size={43}>
-          <ProfilePastAdv
-            user={this.props.user}
-            adventures={this.props.adventures}
-          />
+        <Row size={40}>
+          <Grid>
+            <Row size={13} style={styles.header}>
+              <Col>
+                <Text style={styles.header}>Your Adventures</Text>
+              </Col>
+            </Row>
+            <Row size={87} style={styles.advs}>
+              <Col>
+                <ProfilePastAdv
+                user={this.props.user}
+                adventures={this.props.adventures}
+                />
+              </Col>
+            </Row>
+          </Grid>
         </Row>
       </Grid>
     );

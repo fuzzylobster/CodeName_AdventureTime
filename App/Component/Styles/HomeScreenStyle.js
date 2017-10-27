@@ -2,11 +2,27 @@ import { StyleSheet } from "react-native";
 //import { Metrics, ApplicationStyles } from '../../Themes/'
 
 export default StyleSheet.create({
+  body: {
+    backgroundColor: "#FFECEC"
+  },
+  headBody: {
+    backgroundColor: "#9E2626"
+  },
+  signedInTxt: {
+    color: "#FFFFFF"
+  },
+  selectButton: {
+    padding: 10,
+    backgroundColor: "#acc878"
+  },
+  background: {
+    flex: 1
+  },
   container: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#F5FCFF"
+    backgroundColor: "#FFECEC"
   },
   welcome: {
     fontSize: 20,
@@ -19,8 +35,8 @@ export default StyleSheet.create({
     marginBottom: 5
   },
   profilePicWrap: {
-    width: 65,
-    height: 65,
+    width: 75,
+    height: 75,
     borderRadius: 50,
     borderColor: "rgba(0,0,0,0.4)",
     borderWidth: 5

@@ -49,8 +49,8 @@ export default class HomeScreen extends Component {
   }
   render() {
     return (
-      <Grid>
-        <Row size={10}>
+      <Grid style={styles.body}>
+        <Row size={12}>
           <HomeScreenHeader
             user={this.props.user}
             navigation={this.props.navigation}
@@ -60,7 +60,7 @@ export default class HomeScreen extends Component {
             badges={this.props.badges}
           />
         </Row>
-        <Row size={90}>
+        <Row size={88}>
           <HomeScreenBody
             user={this.props.user}
             adventures={this.props.adventures}
