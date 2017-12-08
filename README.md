@@ -42,7 +42,7 @@ However you decide on your journey be sure to share every memory by uploading yo
 
 ## Database Schema 
 
-![alt text](readme_images/schemas.png)
+![alt text](readme_images/schemas2.png)
 
 
 ## Development
